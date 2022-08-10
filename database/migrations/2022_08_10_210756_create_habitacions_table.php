@@ -17,6 +17,7 @@ class CreateHabitacionsTable extends Migration
             $table->id();
             $table->string('price');
             $table->string('description');
+            $table->string('person-max');
             $table->unsignedBigInteger('categoria_id');
             $table->foreign('categoria_id')
                 ->references('id')->on('categorias');
