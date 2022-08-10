@@ -6,8 +6,12 @@
   <link rel="stylesheet" href="{{ asset('css/styles.css') }}" />
   <!-- Font Awesome Cdn Link -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+  <!--Script-->
+
 </head>
 <body>
+  <?php use App\Models\Categoria;
+    $categorias=Categoria::all();?>
 <div class="container">
     <nav>
       <ul>
@@ -25,10 +29,12 @@
           <span class="nav-item">Habitaciones</span>
         </a>
           <ul class="hidden rooms-submenu" id="rooms-submenu">
-            <li><a href="#">
+            @foreach ($categorias as $categoria)
+            <li><a href="/admin/habitaciones/{{$categoria->name}}">
               <i class="fas fa-bed"></i>
-              <span class="nav-item">Estandar</span>
+              <span class="nav-item">{{ $categoria->name }}</span>
             </a></li>
+            @endforeach
           </ul>
         </li>
         
@@ -58,7 +64,7 @@
       </ul>
     </nav>
     <main class="">
-            @yield('admin')
+      @yield('admin')
     </main>
 
     <!--Script-->

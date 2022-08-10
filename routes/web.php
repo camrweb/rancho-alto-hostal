@@ -51,6 +51,9 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function() {
     Route::post('categorias', [App\Http\Controllers\CategoriaController::class, 'store'])->name('store');
     Route::get('/getCategorias',[App\Http\Controllers\CategoriaController::class, 'getCategorias']);
 
+    //HABITACIONES
+    Route::get('/habitaciones/{categoria}', [App\Http\Controllers\HabitacionController::class, 'index'])->name('habitaciones.show');
+
     //Usuarios
     Route::get('/usuarios', [App\Http\Controllers\UserController::class, 'index'])->name('usuarios');
     Route::get('/usuarios/{id}/delete', [App\Http\Controllers\UserController::class, 'destroy'])->name('usuarios.delete');
