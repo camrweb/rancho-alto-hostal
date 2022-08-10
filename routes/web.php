@@ -46,9 +46,10 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function() {
 
     //Categorias
     Route::get('/categorias', [App\Http\Controllers\CategoriaController::class, 'index'])->name('categorias');
-
+    Route::get('/categorias/{id}/delete', [App\Http\Controllers\CategoriaController::class, 'destroy'])->name('categoria.delete');
     Route::get('categorias/create', [App\Http\Controllers\CategoriaController::class, 'create'])->name('create');
     Route::post('categorias', [App\Http\Controllers\CategoriaController::class, 'store'])->name('store');
+    Route::get('/getCategorias',[App\Http\Controllers\CategoriaController::class, 'getCategorias']);
 
     //Usuarios
     Route::get('/usuarios', [App\Http\Controllers\UserController::class, 'index'])->name('usuarios');

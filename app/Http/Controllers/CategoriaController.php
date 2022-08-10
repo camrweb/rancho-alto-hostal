@@ -92,4 +92,11 @@ class CategoriaController extends Controller
         $categorias=Categoria::all();
         return redirect('admin/categorias');
     }
+
+    public function getCategorias()
+    {
+        $categorias=Categoria::all();
+        Log::Debug($categorias);
+        return $categorias;
+    }
 }

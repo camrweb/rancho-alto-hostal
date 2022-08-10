@@ -28,10 +28,6 @@
             <li><a href="#">
               <i class="fas fa-bed"></i>
               <span class="nav-item">Estandar</span>
-            </a> </li>
-            <li><a href="#">
-              <i class="fas fa-moon"></i>
-              <span class="nav-item">Hamacas</span>
             </a></li>
           </ul>
         </li>
