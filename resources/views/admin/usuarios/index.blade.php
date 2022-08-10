@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 @section('admin')
 
-<!--TABLA USUARIOS-->
+<!--TABLA USUARIOS REGISTRADOS-->
 <section class="attendance">
         <div class="attendance-list">
           <h1>Usuarios registrados</h1>
