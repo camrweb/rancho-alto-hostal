@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Categoria;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class CategoriaController extends Controller
 {
@@ -83,8 +84,12 @@ class CategoriaController extends Controller
      * @param  \App\Models\Categoria  $categoria
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Categoria $id)
+    public function destroy($id)
     {
-        //
+        Log::Debug($id);
+        $categoria=Categoria::find($id);
+        $categoria->delete();
+        $categorias=Categoria::all();
+        return redirect('admin/categorias');
     }
 }

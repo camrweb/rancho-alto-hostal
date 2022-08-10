@@ -24,7 +24,8 @@
                 <td>{{$categoria->name}}</td>
                 <td>
                     <button>Editar</button>
-                    <form method="get" action="" class="delete-form">
+                    <form method="get" action="{{ route('categoria.delete', $categoria->id) }}" class="delete-form">
+                      @csrf
                     <button type="submit" class="delete">Eliminar</button>
                     </form>
                 </td>
