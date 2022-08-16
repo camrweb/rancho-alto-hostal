@@ -53,6 +53,7 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function() {
 
     //HABITACIONES
     Route::get('/habitaciones/{categoria}', [App\Http\Controllers\HabitacionController::class, 'index'])->name('habitaciones.show');
+    Route::get('/habitaciones/{categoria}/create', [App\Http\Controllers\HabitacionController::class, 'create'])->name('habitacion.create');
 
     //Usuarios
     Route::get('/usuarios', [App\Http\Controllers\UserController::class, 'index'])->name('usuarios');

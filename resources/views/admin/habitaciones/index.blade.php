@@ -1,9 +1,12 @@
 @extends('layouts.admin')
 @section('admin')
 
-<h1>
-  HABITACIONES
-</h1>
+
+<button class="delete-form">
+  <a href="{{ route('habitacion.create')}}">
+      CREAR
+  </a>
+</button>
 
 <section class="attendance">
         <div class="attendance-list">
