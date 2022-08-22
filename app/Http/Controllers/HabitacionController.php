@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Habitacion;
+use App\Models\Categoria;
 use Illuminate\Http\Request;
 
 class HabitacionController extends Controller
@@ -12,9 +13,11 @@ class HabitacionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($categoria)
+    public function index($name)
     {
-        return view('admin.habitaciones.index');
+        $categoria=Categoria::where('name',$name)->first();
+        $habitaciones=Habitacion::where('categoria_id',$categoria->id)->get();
+        return view('admin.habitaciones.index')->with('categoria',$name)->with('habitaciones',$habitaciones);
     }
 
     /**
@@ -22,10 +25,10 @@ class HabitacionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($categoria)
     {
         //
-        return view ('admin.habitaciones.create');
+        return view ('admin.habitaciones.create')->with('categoria',$categoria);
     }
 
     /**
@@ -34,9 +37,17 @@ class HabitacionController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $categoria)
     {
-        //
+        $category = Categoria::where('name',$categoria)->first();
+        $habitacion = new Habitacion();
+        $habitacion->name = $request->nombre;
+        $habitacion->description = $request->description;
+        $habitacion['person-max'] = $request->person_max;
+        $habitacion->price = $request->price;
+        $habitacion->categoria_id = $category->id;
+        $habitacion->save();
+        return redirect()->route('habitaciones.show',$categoria);
     }
 
     /**

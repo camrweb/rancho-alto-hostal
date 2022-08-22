@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>Rancho Alto - @yield('title')</title>
     <link rel="stylesheet" href="{{ asset ('css/bootstrap.min.css') }}">
       <!-- style css -->
       <link rel="stylesheet" href="{{ asset ('css/style.css') }}">

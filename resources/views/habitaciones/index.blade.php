@@ -1,5 +1,7 @@
 @extends('layouts.app')
+@section('title', 'Habitaciones')
 @section('content')
+
 
 <div class="back_re habitaciones">
          <div class="container">
