@@ -35,7 +35,7 @@
                <div class="row">
                   <div class="col-md-5">
                      <div class="col-md-12">
-                       <button class="book_btn">Reservar ahora</button>
+                       <button class="book_btn" data-toggle="modal" data-target="#exampleModal">Reservar ahora</button>
                      </div>
                   </div>
                </div>
@@ -43,6 +43,74 @@
          </div>
       </section>
       <!-- end banner -->
+      @if (Auth::check())
+         <!-- Modal -->
+         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+            <div class="modal-content">
+               <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Hace tu reserva ahora !</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                  </button>
+               </div>
+               <div class="modal-body">
+                  <div class="input-group mb-3">
+                     <div class="input-group-prepend">
+                       <label class="input-group-text" for="inputGroupSelect01">Categoria</label>
+                     </div>
+                     <select class="custom-select" id="inputGroupSelect01">
+                       <option selected>Choose...</option>
+                       <option value="1">One</option>
+                       <option value="2">Two</option>
+                       <option value="3">Three</option>
+                     </select>
+                   </div>
+                   <div class="input-group mb-3">
+                     <div class="input-group-prepend">
+                       <label class="input-group-text" for="inputGroupSelect01">Habitaciones</label>
+                     </div>
+                     <select class="custom-select" id="inputGroupSelect01">
+                       <option selected>Choose...</option>
+                       <option value="1">One</option>
+                       <option value="2">Two</option>
+                       <option value="3">Three</option>
+                     </select>
+                   </div>
+                   <div class="input-group mb-3">
+                     <div class="input-group-prepend">
+                       <label class="input-group-text" for="inputGroupSelect01">Maximo de personas</label>
+                     </div>
+                     <select class="custom-select" id="inputGroupSelect01">
+                       <option selected>Choose...</option>
+                       <option value="1">One</option>
+                       <option value="2">Two</option>
+                       <option value="3">Three</option>
+                     </select>
+                   </div>
+               </div>
+               <div class='col-sm-6'>
+                  <div class="form-group">
+                      <div class='input-group date' id='datetimepicker1'>
+                          <input type='text' class="form-control" />
+                          <span class="input-group-addon">
+                              <span class="glyphicon glyphicon-calendar"></span>
+                          </span>
+                      </div>
+                  </div>
+              </div>
+               <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                  <button type="button" class="btn btn-primary">Reservar</button>
+               </div>
+            </div>
+            </div>
+         </div>
+      @else
+         <div class="alert alert-success">
+           <span>Por favor registrate</span>
+         </div>
+      @endif
       <!-- about -->
       <div class="about">
          <div class="container-fluid">
