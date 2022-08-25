@@ -55,50 +55,91 @@
                   </button>
                </div>
                <div class="modal-body">
-                  <div class="input-group mb-3">
-                     <div class="input-group-prepend">
-                       <label class="input-group-text" for="inputGroupSelect01">Categoria</label>
-                     </div>
-                     <select class="custom-select" id="inputGroupSelect01">
-                       <option selected>Selecionar opcion</option>
-                       <option value="1">One</option>
-                       <option value="2">Two</option>
-                       <option value="3">Three</option>
-                     </select>
-                   </div>
-                   <div class="input-group mb-3">
-                     <div class="input-group-prepend">
-                       <label class="input-group-text" for="inputGroupSelect01">Habitaciones</label>
-                     </div>
-                     <select class="custom-select" id="inputGroupSelect01">
-                       <option selected>Selecionar opcion</option>
-                       <option value="1">One</option>
-                       <option value="2">Two</option>
-                       <option value="3">Three</option>
-                     </select>
-                   </div>
-                   <div class="input-group mb-3">
-                     <div class="input-group-prepend">
-                       <label class="input-group-text" for="inputGroupSelect01">Maximo de personas</label>
-                     </div>
-                     <select class="custom-select" id="inputGroupSelect01">
-                       <option selected>Selecionar opcion</option>
-                       <option value="1">One</option>
-                       <option value="2">Two</option>
-                       <option value="3">Three</option>
-                     </select>
-                   </div>
-               </div>
-               <div class='col-sm-6'>
+                  <!-- Nombres -->
                   <div class="form-group">
-                      <div class='input-group date' id='datetimepicker1'>
-                          <input type='text' class="form-control" />
-                          <span class="input-group-addon">
-                              <span class="glyphicon glyphicon-calendar"></span>
-                          </span>
+                     <label for="formGroupExampleInput">Identificacion</label>
+                        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Nombre">
+                     </div>
+                     <!-- Apellidos -->
+                     <div class="row">
+                        <div class="col">
+                           <input type="text" class="form-control" placeholder="Primer apellido">
+                        </div>
+                        <div class="col">
+                           <input type="text" class="form-control" placeholder="Segundo apellido">
+                        </div>
+                     </div>
+                     <!-- Fecha de nacimiento -->
+                     <div class="form-group" style="padding-top: 15px">
+                        <label for="formGroupExampleInput">FECHA DE NACIMIENTO</label>
+                        <input type="date" class="form-control" id="formGroupExampleInput">
+                     </div>
+                     <!-- Tipo de identificacion -->
+                        <div class="form-group">
+                           <label for="exampleFormControlSelect1">TIPO DE IDENTIFICACION</label>
+                           <select class="form-control" id="exampleFormControlSelect1">
+                           <option>CEDULA DE CIUDADANIA</option>
+                           <option>CEDULA DE EXTRANJERIA</option>
+                           <option>NIT</option>
+                           </select>
+                        </div>
+                        <div class="form-group">
+                              <input type="text" class="form-control" id="formGroupExampleInput" placeholder="NUMERO DE DOCUMENTO">
+                           </div>
+                     <!-- Genero -->
+                     <div class="form-group">
+                        <label for="exampleFormControlSelect1">GENERO</label>
+                        <select class="form-control" id="exampleFormControlSelect1">
+                        <option>FEMENINO</option>
+                        <option>MASCULINO</option>
+                        </select>
+                     </div>
+                     <!-- Numero de telefono -->
+                     <div class="form-group">
+                        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="TELEFONO">
+                     </div>
+                     <!-- Correo -->
+                     <div class="form-group">
+                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="CORREO ELECTRONICO">
+                        <small id="emailHelp" class="form-text text-muted">Nunca compartiremos su correo electrónico con nadie más.</small>
                       </div>
-                  </div>
-              </div>
+                     <!-- Pais -->
+                     <div class="form-group">
+                        <label for="exampleFormControlSelect1">PAIS</label>
+                        <select class="form-control" id="exampleFormControlSelect1">
+                        <option>PAIS</option>
+                        </select>
+                     </div>
+                     <!-- Ciudad -->
+                     <div class="form-group">
+                        <label for="exampleFormControlSelect1">CIUDAD</label>
+                        <select class="form-control" id="exampleFormControlSelect1">
+                        <option>CIUDAD</option>
+                        </select>
+                     </div>
+                     <!-- Codigo postal -->
+                     <div class="form-group">
+                        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="CODIGO POSTAL">
+                     </div>
+                     <!-- Direccion -->
+                     <div class="form-group">
+                        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="DIRECCION">
+                     </div>
+                     <!-- Categoria -->
+                     <div class="form-group">
+                        <label for="exampleFormControlSelect1">CATEGORIA</label>
+                        <select class="form-control" id="exampleFormControlSelect1">
+                        <option>HAMACA</option>
+                        </select>
+                     </div>
+                     <!-- Habitaciones -->
+                     <div class="form-group">
+                        <label for="exampleFormControlSelect1">HABITACIONES</label>
+                        <select class="form-control" id="exampleFormControlSelect1">
+                        <option>HB1</option>
+                        </select>
+                     </div>
+               </div>
                <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
                   <button type="button" class="btn btn-primary">Reservar</button>
