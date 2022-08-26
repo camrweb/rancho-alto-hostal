@@ -94,4 +94,6 @@ class HabitacionController extends Controller
     {
         //
     }
+
+    
 }

@@ -2,12 +2,14 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoriaController;
+use App\Models\Categoria;
 
 
 
 //USUARIOS
 Route::get('/', function () {
-    return view('welcome');
+    $categorias = Categoria::all();
+    return view('welcome')->with('categorias',$categorias);
 })->name('index');
 
 Route::get('/habitaciones', function () {

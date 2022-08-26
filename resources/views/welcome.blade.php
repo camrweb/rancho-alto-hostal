@@ -55,12 +55,12 @@
                   </button>
                </div>
                <div class="modal-body">
-                  <!-- Nombres -->
+                  <!-- Nombres 
                   <div class="form-group">
                      <label for="formGroupExampleInput">Identificacion</label>
                         <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Nombre">
                      </div>
-                     <!-- Apellidos -->
+                     Apellidos 
                      <div class="row">
                         <div class="col">
                            <input type="text" class="form-control" placeholder="Primer apellido">
@@ -69,12 +69,12 @@
                            <input type="text" class="form-control" placeholder="Segundo apellido">
                         </div>
                      </div>
-                     <!-- Fecha de nacimiento -->
+                     Fecha de nacimiento 
                      <div class="form-group" style="padding-top: 15px">
                         <label for="formGroupExampleInput">FECHA DE NACIMIENTO</label>
                         <input type="date" class="form-control" id="formGroupExampleInput">
                      </div>
-                     <!-- Tipo de identificacion -->
+                      Tipo de identificacion 
                         <div class="form-group">
                            <label for="exampleFormControlSelect1">TIPO DE IDENTIFICACION</label>
                            <select class="form-control" id="exampleFormControlSelect1">
@@ -86,7 +86,7 @@
                         <div class="form-group">
                               <input type="text" class="form-control" id="formGroupExampleInput" placeholder="NUMERO DE DOCUMENTO">
                            </div>
-                     <!-- Genero -->
+                      Genero 
                      <div class="form-group">
                         <label for="exampleFormControlSelect1">GENERO</label>
                         <select class="form-control" id="exampleFormControlSelect1">
@@ -94,42 +94,45 @@
                         <option>MASCULINO</option>
                         </select>
                      </div>
-                     <!-- Numero de telefono -->
+                      Numero de telefono 
                      <div class="form-group">
                         <input type="text" class="form-control" id="formGroupExampleInput" placeholder="TELEFONO">
                      </div>
-                     <!-- Correo -->
+                      Correo 
                      <div class="form-group">
                         <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="CORREO ELECTRONICO">
                         <small id="emailHelp" class="form-text text-muted">Nunca compartiremos su correo electrónico con nadie más.</small>
                       </div>
-                     <!-- Pais -->
+                      Pais
                      <div class="form-group">
                         <label for="exampleFormControlSelect1">PAIS</label>
                         <select class="form-control" id="exampleFormControlSelect1">
                         <option>PAIS</option>
                         </select>
                      </div>
-                     <!-- Ciudad -->
+                      Ciudad 
                      <div class="form-group">
                         <label for="exampleFormControlSelect1">CIUDAD</label>
                         <select class="form-control" id="exampleFormControlSelect1">
                         <option>CIUDAD</option>
                         </select>
                      </div>
-                     <!-- Codigo postal -->
+                      Codigo postal 
                      <div class="form-group">
                         <input type="text" class="form-control" id="formGroupExampleInput" placeholder="CODIGO POSTAL">
                      </div>
-                     <!-- Direccion -->
+                     Direccion 
                      <div class="form-group">
                         <input type="text" class="form-control" id="formGroupExampleInput" placeholder="DIRECCION">
-                     </div>
+                     </div> -->
                      <!-- Categoria -->
                      <div class="form-group">
                         <label for="exampleFormControlSelect1">CATEGORIA</label>
                         <select class="form-control" id="exampleFormControlSelect1">
-                        <option>HAMACA</option>
+                           <option id="select_default">SELECCIONA</option>
+                           @foreach ($categorias as $categoria) 
+                              <option value="{{ $categoria->id }}">{{ $categoria->name }}</option>
+                           @endforeach
                         </select>
                      </div>
                      <!-- Habitaciones -->
@@ -138,6 +141,15 @@
                         <select class="form-control" id="exampleFormControlSelect1">
                         <option>HB1</option>
                         </select>
+                     </div>
+                     <!--Fecha-->
+                     <div class="form-group" style="padding-top: 15px">
+                        <label for="formGroupExampleInput">Check in</label>
+                        <input type="date" class="form-control" id="formGroupExampleInput">
+                     </div>
+                     <div class="form-group" style="padding-top: 15px">
+                        <label for="formGroupExampleInput">Check out</label>
+                        <input type="date" class="form-control" id="formGroupExampleInput">
                      </div>
                </div>
                <div class="modal-footer">
@@ -377,4 +389,13 @@
          </div>
       </div>
       <!-- end contact -->
+
+      <!-- Script -->
+      <script>
+         const categorySelect = document.getElementById('exampleFormControlSelect1') ;
+         categorySelect.addEventListener('change', () => {
+            let select_default = document.getElementById('select_default')
+            select_default.setAttribute('disabled',true)
+         })
+      </script>
 @endsection
