@@ -55,12 +55,12 @@
                   </button>
                </div>
                <div class="modal-body">
-                  <!-- Nombres 
+                  <!-- Nombres
                   <div class="form-group">
                      <label for="formGroupExampleInput">Identificacion</label>
                         <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Nombre">
                      </div>
-                     Apellidos 
+                     Apellidos
                      <div class="row">
                         <div class="col">
                            <input type="text" class="form-control" placeholder="Primer apellido">
@@ -143,14 +143,23 @@
                               <option value="{{ $habitacion->id }}">{{ $habitacion->name }}</option>
                            @endforeach --}}
                            <script>
+                              const url = location.href;
                               let idCategoriaElem = document.getElementById('_categorias');
                               let habitacionesElem = document.getElementById('_habitaciones');
-                              let idCategoria = idCategoriaElem.options[idCategoriaElem.selectIndex].value
-                              let option = createElement('option')
-                              option.value = idCategoria
-                              option.text = idCategoria
-                              habitacionesElem.add(option)
-                              console.Log(idCategoria)
+                              idCategoriaElem.addEventListener('change', async function(){
+                                 let idCategoria = idCategoriaElem.value;
+                                 
+                                 const {data, success} = await fetch(`${url}habitaciones/${idCategoria}`)
+                                    .then(res => res.json());
+                                 if(success){
+                                    habitacionesElem.innerHTML = '';
+                                    habitacionesElem.innerHTML += `<option id="select_default">SELECCIONA</option>`;
+                                    data.forEach(habitacion => {
+                                       habitacionesElem.innerHTML += `<option value="${habitacion.id}">${habitacion.name}</option>`;
+                                    });
+                                 }
+                                 
+                              });
                            </script>
                         </select>
                      </div>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Habitacion;
 use App\Models\Categoria;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class HabitacionController extends Controller
 {
@@ -15,9 +16,9 @@ class HabitacionController extends Controller
      */
     public function index($name)
     {
-        $categoria=Categoria::where('name',$name)->first();
-        $habitaciones=Habitacion::where('categoria_id',$categoria->id)->get();
-        return view('admin.habitaciones.index')->with('categoria',$name)->with('habitaciones',$habitaciones);
+        $categoria = Categoria::where('name', $name)->first();
+        $habitaciones = Habitacion::where('categoria_id', $categoria->id)->get();
+        return view('admin.habitaciones.index')->with('categoria', $name)->with('habitaciones', $habitaciones);
     }
 
     /**
@@ -28,7 +29,7 @@ class HabitacionController extends Controller
     public function create($categoria)
     {
         //
-        return view ('admin.habitaciones.create')->with('categoria',$categoria);
+        return view('admin.habitaciones.create')->with('categoria', $categoria);
     }
 
     /**
@@ -39,7 +40,7 @@ class HabitacionController extends Controller
      */
     public function store(Request $request, $categoria)
     {
-        $category = Categoria::where('name',$categoria)->first();
+        $category = Categoria::where('name', $categoria)->first();
         $habitacion = new Habitacion();
         $habitacion->name = $request->nombre;
         $habitacion->description = $request->description;
@@ -47,7 +48,7 @@ class HabitacionController extends Controller
         $habitacion->price = $request->price;
         $habitacion->categoria_id = $category->id;
         $habitacion->save();
-        return redirect()->route('habitaciones.show',$categoria);
+        return redirect()->route('habitaciones.show', $categoria);
     }
 
     /**
@@ -97,6 +98,10 @@ class HabitacionController extends Controller
 
     public function getByCategory($categoria)
     {
-        
+        $habitaciones = DB::table('habitacions')->where('categoria_id', $categoria)->get();
+        return response()->json([
+            'success' => true,
+            'data' => $habitaciones
+        ]);
     }
 }
