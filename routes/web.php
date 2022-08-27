@@ -3,14 +3,18 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoriaController;
 use App\Models\Categoria;
+use App\Models\Habitacion;
 
 
 
 //USUARIOS
 Route::get('/', function () {
     $categorias = Categoria::all();
-    return view('welcome')->with('categorias',$categorias);
+    $habitaciones = Habitacion::all();
+    return view('welcome')->with('categorias',$categorias)->with('habitaciones',$habitaciones);
 })->name('index');
+
+Route::post('habitaciones/{categoria}', [App\Http\Controllers\HabitacionController::class, 'getByCategory'])->name('habitaciones.categorias');
 
 Route::get('/habitaciones', function () {
     return view ('habitaciones.index');

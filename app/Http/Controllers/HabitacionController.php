@@ -95,5 +95,8 @@ class HabitacionController extends Controller
         //
     }
 
-    
+    public function getByCategory($categoria)
+    {
+        
+    }
 }

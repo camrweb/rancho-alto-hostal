@@ -128,7 +128,7 @@
                      <!-- Categoria -->
                      <div class="form-group">
                         <label for="exampleFormControlSelect1">CATEGORIA</label>
-                        <select class="form-control" id="exampleFormControlSelect1">
+                        <select class="form-control" id="_categorias">
                            <option id="select_default">SELECCIONA</option>
                            @foreach ($categorias as $categoria) 
                               <option value="{{ $categoria->id }}">{{ $categoria->name }}</option>
@@ -138,8 +138,20 @@
                      <!-- Habitaciones -->
                      <div class="form-group">
                         <label for="exampleFormControlSelect1">HABITACIONES</label>
-                        <select class="form-control" id="exampleFormControlSelect1">
-                        <option>HB1</option>
+                        <select class="form-control" id="_habitaciones">
+                           {{-- @foreach ($habitaciones as $habitacion)
+                              <option value="{{ $habitacion->id }}">{{ $habitacion->name }}</option>
+                           @endforeach --}}
+                           <script>
+                              let idCategoriaElem = document.getElementById('_categorias');
+                              let habitacionesElem = document.getElementById('_habitaciones');
+                              let idCategoria = idCategoriaElem.options[idCategoriaElem.selectIndex].value
+                              let option = createElement('option')
+                              option.value = idCategoria
+                              option.text = idCategoria
+                              habitacionesElem.add(option)
+                              console.Log(idCategoria)
+                           </script>
                         </select>
                      </div>
                      <!--Fecha-->
@@ -392,7 +404,7 @@
 
       <!-- Script -->
       <script>
-         const categorySelect = document.getElementById('exampleFormControlSelect1') ;
+         const categorySelect = document.getElementById('_categorias') ;
          categorySelect.addEventListener('change', () => {
             let select_default = document.getElementById('select_default')
             select_default.setAttribute('disabled',true)
