@@ -84,6 +84,157 @@
                               <li class="nav-item {{ request()->is('contactanos') ? 'active' : '' }}">
                                  <a class="nav-link" href="{{ route('contactanos') }}">CONTÁCTENOS</a>
                               </li>
+                              <li>
+                                <button on:click=(showAlert) class="btn btn-danger mr-2 reservar-alert" data-toggle="modal" data-target="#exampleModal">RESERVAR AHORA</button>
+                             </li>
+                             @if (Auth::check())
+         <!-- Modal -->
+         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+            <div class="modal-content">
+               <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">RESERVA AHORA!</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                  </button>
+               </div>
+               <div class="modal-body">
+                  <!-- Nombres
+                  <div class="form-group">
+                     <label for="formGroupExampleInput">Identificacion</label>
+                        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Nombre">
+                     </div>
+                     Apellidos
+                     <div class="row">
+                        <div class="col">
+                           <input type="text" class="form-control" placeholder="Primer apellido">
+                        </div>
+                        <div class="col">
+                           <input type="text" class="form-control" placeholder="Segundo apellido">
+                        </div>
+                     </div>
+                     Fecha de nacimiento 
+                     <div class="form-group" style="padding-top: 15px">
+                        <label for="formGroupExampleInput">FECHA DE NACIMIENTO</label>
+                        <input type="date" class="form-control" id="formGroupExampleInput">
+                     </div>
+                      Tipo de identificacion 
+                        <div class="form-group">
+                           <label for="exampleFormControlSelect1">TIPO DE IDENTIFICACION</label>
+                           <select class="form-control" id="exampleFormControlSelect1">
+                           <option>CEDULA DE CIUDADANIA</option>
+                           <option>CEDULA DE EXTRANJERIA</option>
+                           <option>NIT</option>
+                           </select>
+                        </div>
+                        <div class="form-group">
+                              <input type="text" class="form-control" id="formGroupExampleInput" placeholder="NUMERO DE DOCUMENTO">
+                           </div>
+                      Genero 
+                     <div class="form-group">
+                        <label for="exampleFormControlSelect1">GENERO</label>
+                        <select class="form-control" id="exampleFormControlSelect1">
+                        <option>FEMENINO</option>
+                        <option>MASCULINO</option>
+                        </select>
+                     </div>
+                      Numero de telefono 
+                     <div class="form-group">
+                        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="TELEFONO">
+                     </div>
+                      Correo 
+                     <div class="form-group">
+                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="CORREO ELECTRONICO">
+                        <small id="emailHelp" class="form-text text-muted">Nunca compartiremos su correo electrónico con nadie más.</small>
+                      </div>
+                      Pais
+                     <div class="form-group">
+                        <label for="exampleFormControlSelect1">PAIS</label>
+                        <select class="form-control" id="exampleFormControlSelect1">
+                        <option>PAIS</option>
+                        </select>
+                     </div>
+                      Ciudad 
+                     <div class="form-group">
+                        <label for="exampleFormControlSelect1">CIUDAD</label>
+                        <select class="form-control" id="exampleFormControlSelect1">
+                        <option>CIUDAD</option>
+                        </select>
+                     </div>
+                      Codigo postal 
+                     <div class="form-group">
+                        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="CODIGO POSTAL">
+                     </div>
+                     Direccion 
+                     <div class="form-group">
+                        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="DIRECCION">
+                     </div> -->
+                     <!-- Categoria -->
+                     <div class="form-group">
+                        <label for="exampleFormControlSelect1">CATEGORIA</label>
+                        <select class="form-control" id="_categorias">
+                           <option id="select_default">SELECCIONA</option>
+                           @foreach ($categorias as $categoria) 
+                              <option value="{{ $categoria->id }}">{{ $categoria->name }}</option>
+                           @endforeach
+                        </select>
+                     </div>
+                     <!-- Habitaciones -->
+                     <div class="form-group">
+                        <label for="exampleFormControlSelect1">HABITACIONES</label>
+                        <select class="form-control" id="_habitaciones">
+                           {{-- @foreach ($habitaciones as $habitacion)
+                              <option value="{{ $habitacion->id }}">{{ $habitacion->name }}</option>
+                           @endforeach --}}
+                           <script>
+                              const url = location.href;
+                              let idCategoriaElem = document.getElementById('_categorias');
+                              let habitacionesElem = document.getElementById('_habitaciones');
+                              idCategoriaElem.addEventListener('change', async function(){
+                                 let idCategoria = idCategoriaElem.value;
+                                 
+                                 const {data, success} = await fetch(`${url}habitaciones/${idCategoria}`)
+                                    .then(res => res.json());
+                                 if(success){
+                                    habitacionesElem.innerHTML = '';
+                                    habitacionesElem.innerHTML += `<option id="select_default">SELECCIONA</option>`;
+                                    data.forEach(habitacion => {
+                                       habitacionesElem.innerHTML += `<option value="${habitacion.id}">${habitacion.name}</option>`;
+                                    });
+                                 }
+                                 
+                              });
+                           </script>
+                        </select>
+                     </div>
+                     <!--Fecha-->
+                     <div class="row">
+                        <div class="col">
+                           <label for="formGroupExampleInput">Check in</label>
+                           <input type="date" class="form-control" id="date-1">
+                        </div>
+                        <div class="col">
+                           <label for="formGroupExampleInput">Check out</label>
+                           <input type="date" class="form-control" id="date-2">
+                        </div>
+                     </div>
+                     <div class="row mt-1">
+                        <div class="col">
+                           <button type="button" id="calcular" class="btn btn-outline-success">Calcular</button>
+                        </div>
+                        <div class="col" id="result">
+                        </div>
+                     </div>
+               </div>
+               <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                  <button type="button" class="btn btn-primary">Reservar</button>
+               </div>
+            </div>
+            </div>
+         </div>
+         @else
+      @endif
                               @guest
                             @if (Route::has('login'))
                                     @auth
@@ -92,17 +243,17 @@
                                     </li>
                                     @else
                                     <li>
-                                        <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">ENTRAR</a>
+                                        <a href="{{ route('login') }}" class="btn btn-outline-danger">ENTRAR</a>
                                     </li>
                                     @if (Route::has('register'))
                                     <li>
-                                        <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">REGISTRATE</a>
+                                        <a href="{{ route('register') }}" class="btn btn-outline-danger ml-2 ">REGISTRATE</a>
                                     </li>
                                     @endif
                                     @endauth
                             @endif
                             @else
-                            <li class="nav-item dropdown">
+                            <li class="nav-item dropdown ml-2">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
                                 </a>
@@ -201,6 +352,28 @@
       <script src="js/custom.js"></script>
       <!--Script Dashboard-->
       <script src="js/main.js"></script>
+      <script>
+      let calcular = document.getElementById('calcular');
+      let result = document.getElementById('result');
+      console.log('holaaa')
+
+      calcular.addEventListener('click', () => {
+      let date1 = new Date(document.getElementById('date-1').value);
+      let date2 = new Date(document.getElementById('date-2').value);
+
+      if(date1.getTime() && date2.getTime()){
+         let timeDifference = date2.getTime() - date1.getTime();
+
+         let dayDifference = Math.abs(timeDifference/(1000*3600*24));
+         result.innerHTML = `Un total de <span> ${dayDifference} </span> dias`;
+      }
+
+      else{
+         result.innerHTML = "por favor seleccione una fecha valida";
+      }
+    
+})
+      </script>
       </div>
 </body>
 </html>

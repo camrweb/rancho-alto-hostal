@@ -12,3 +12,4 @@ rooms_menu.addEventListener('click',()=>{
         submenu.classList.add('hidden')
     }
 })
+

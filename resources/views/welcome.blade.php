@@ -11,8 +11,6 @@
             <div class="carousel-inner">
                <div class="carousel-item active">
                   <img class="first-slide" src="images/ft_7.png" alt="First slide">
-                  <div class="container">
-                  </div>
                </div>
                <div class="carousel-item">
                   <img class="second-slide" src="images/banner2.jpg" alt="Second slide">
@@ -42,149 +40,6 @@
             </div>
          </div>
       </section>
-      <!-- end banner -->
-      @if (Auth::check())
-         <!-- Modal -->
-         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-            <div class="modal-content">
-               <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">Hace tu reserva ahora !</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                  </button>
-               </div>
-               <div class="modal-body">
-                  <!-- Nombres
-                  <div class="form-group">
-                     <label for="formGroupExampleInput">Identificacion</label>
-                        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Nombre">
-                     </div>
-                     Apellidos
-                     <div class="row">
-                        <div class="col">
-                           <input type="text" class="form-control" placeholder="Primer apellido">
-                        </div>
-                        <div class="col">
-                           <input type="text" class="form-control" placeholder="Segundo apellido">
-                        </div>
-                     </div>
-                     Fecha de nacimiento 
-                     <div class="form-group" style="padding-top: 15px">
-                        <label for="formGroupExampleInput">FECHA DE NACIMIENTO</label>
-                        <input type="date" class="form-control" id="formGroupExampleInput">
-                     </div>
-                      Tipo de identificacion 
-                        <div class="form-group">
-                           <label for="exampleFormControlSelect1">TIPO DE IDENTIFICACION</label>
-                           <select class="form-control" id="exampleFormControlSelect1">
-                           <option>CEDULA DE CIUDADANIA</option>
-                           <option>CEDULA DE EXTRANJERIA</option>
-                           <option>NIT</option>
-                           </select>
-                        </div>
-                        <div class="form-group">
-                              <input type="text" class="form-control" id="formGroupExampleInput" placeholder="NUMERO DE DOCUMENTO">
-                           </div>
-                      Genero 
-                     <div class="form-group">
-                        <label for="exampleFormControlSelect1">GENERO</label>
-                        <select class="form-control" id="exampleFormControlSelect1">
-                        <option>FEMENINO</option>
-                        <option>MASCULINO</option>
-                        </select>
-                     </div>
-                      Numero de telefono 
-                     <div class="form-group">
-                        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="TELEFONO">
-                     </div>
-                      Correo 
-                     <div class="form-group">
-                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="CORREO ELECTRONICO">
-                        <small id="emailHelp" class="form-text text-muted">Nunca compartiremos su correo electrónico con nadie más.</small>
-                      </div>
-                      Pais
-                     <div class="form-group">
-                        <label for="exampleFormControlSelect1">PAIS</label>
-                        <select class="form-control" id="exampleFormControlSelect1">
-                        <option>PAIS</option>
-                        </select>
-                     </div>
-                      Ciudad 
-                     <div class="form-group">
-                        <label for="exampleFormControlSelect1">CIUDAD</label>
-                        <select class="form-control" id="exampleFormControlSelect1">
-                        <option>CIUDAD</option>
-                        </select>
-                     </div>
-                      Codigo postal 
-                     <div class="form-group">
-                        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="CODIGO POSTAL">
-                     </div>
-                     Direccion 
-                     <div class="form-group">
-                        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="DIRECCION">
-                     </div> -->
-                     <!-- Categoria -->
-                     <div class="form-group">
-                        <label for="exampleFormControlSelect1">CATEGORIA</label>
-                        <select class="form-control" id="_categorias">
-                           <option id="select_default">SELECCIONA</option>
-                           @foreach ($categorias as $categoria) 
-                              <option value="{{ $categoria->id }}">{{ $categoria->name }}</option>
-                           @endforeach
-                        </select>
-                     </div>
-                     <!-- Habitaciones -->
-                     <div class="form-group">
-                        <label for="exampleFormControlSelect1">HABITACIONES</label>
-                        <select class="form-control" id="_habitaciones">
-                           {{-- @foreach ($habitaciones as $habitacion)
-                              <option value="{{ $habitacion->id }}">{{ $habitacion->name }}</option>
-                           @endforeach --}}
-                           <script>
-                              const url = location.href;
-                              let idCategoriaElem = document.getElementById('_categorias');
-                              let habitacionesElem = document.getElementById('_habitaciones');
-                              idCategoriaElem.addEventListener('change', async function(){
-                                 let idCategoria = idCategoriaElem.value;
-                                 
-                                 const {data, success} = await fetch(`${url}habitaciones/${idCategoria}`)
-                                    .then(res => res.json());
-                                 if(success){
-                                    habitacionesElem.innerHTML = '';
-                                    habitacionesElem.innerHTML += `<option id="select_default">SELECCIONA</option>`;
-                                    data.forEach(habitacion => {
-                                       habitacionesElem.innerHTML += `<option value="${habitacion.id}">${habitacion.name}</option>`;
-                                    });
-                                 }
-                                 
-                              });
-                           </script>
-                        </select>
-                     </div>
-                     <!--Fecha-->
-                     <div class="form-group" style="padding-top: 15px">
-                        <label for="formGroupExampleInput">Check in</label>
-                        <input type="date" class="form-control" id="formGroupExampleInput">
-                     </div>
-                     <div class="form-group" style="padding-top: 15px">
-                        <label for="formGroupExampleInput">Check out</label>
-                        <input type="date" class="form-control" id="formGroupExampleInput">
-                     </div>
-               </div>
-               <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                  <button type="button" class="btn btn-primary">Reservar</button>
-               </div>
-            </div>
-            </div>
-         </div>
-      @else
-         <div class="alert alert-success">
-           <span>Por favor registrate</span>
-         </div>
-      @endif
       <!-- about -->
       <div class="about">
          <div class="container-fluid">
@@ -418,5 +273,36 @@
             let select_default = document.getElementById('select_default')
             select_default.setAttribute('disabled',true)
          })
+// //
+// //      CHECK IN       
+// //
+//          let check_in = document.getElementById('check_in')
+//          check_in.addEventListener('change', () => {
+//          console.log('hola')
+//             let checkin_value = document.getElementById('check_in').value
+//             let checkout_value = document.getElementById('check_out').value
+//             const date1 = new Date(checkin_value);
+//             const date2 = new Date(checkout_value);
+//             const diffTime = Math.abs(date2 - date1);
+//             const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)); 
+//             console.log(diffTime + " milliseconds");
+//             console.log(diffDays + " days");
+//          })
+// //
+// //      CHECK OUT       
+// //
+//          let check_out = document.getElementById('check_out')
+//          check_out.addEventListener('change', () => {
+//          console.log('hola')
+//             let checkin_value = document.getElementById('check_in').value
+//             let checkout_value = document.getElementById('check_out').value
+//             const date1 = new Date(checkin_value);
+//             const date2 = new Date(checkout_value);
+//             const diffTime = Math.abs(date2 - date1);
+//             const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)); 
+//             console.log(diffTime + " milliseconds");
+//             console.log(diffDays + " days");
+//          })
+
       </script>
 @endsection

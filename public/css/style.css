@@ -947,6 +947,22 @@ line-height: 35px;
      margin-top: 90px;
 }
 
+#result{
+     text-align: center;
+     color: #222222;
+     font-size: 1em;
+     letter-spacing: 0.05em;
+     border-bottom: 2px solid rgb(88, 217, 146);
+     border-radius: 5px;
+     margin-right: 8px;
+}
+
+#result span{
+     color: #d44a4a;
+     font-weight: 600;
+     font-size: 1.2em;
+   }
+
 
 
 
