@@ -346,6 +346,10 @@
          let priceCalculated = document.getElementById("result");
 
          idCategoriaElem.addEventListener('change', async function(){
+
+            if (document.getElementById("personasSelect")) document.getElementById("personasSelect").remove()
+            if (document.getElementById("descriptionRoom")) document.getElementById("descriptionRoom").remove()
+
             let idCategoria = idCategoriaElem.value;
             priceCalculated.textContent = ""
             const {data, success} = await fetch(`${url}habitaciones/${idCategoria}`).then(res => res.json());
@@ -353,48 +357,68 @@
             if(success){
                habitacionesElem.innerHTML = '';
                habitacionesElem.innerHTML += `<option id="select_default">SELECCIONA</option>`;
+
                data.forEach(habitacion => {
-                  habitacionesElem.innerHTML += `<option data-max="${habitacion['person-max']}" data-price="${habitacion.price}" value="${habitacion.id}">${habitacion.name}</option>`;
+                  habitacionesElem.innerHTML += `<option value="${habitacion.id}">${habitacion.name}</option>`;
                });
 
             }
             
          });
 
-         habitacionesElem.addEventListener("change", () => {
+         habitacionesElem.addEventListener("change", async () => {
 
-            if (document.getElementById("personasSelect")) {
-               document.getElementById("personasSelect").remove()
+            let nombreHabitacion = habitacionesElem.options[habitacionesElem.selectedIndex].text
+            const {data, success} = await fetch(`${url}habitacion/${nombreHabitacion}`).then(res => res.json());
+
+            if (success) {
+               if (document.getElementById("personasSelect")) document.getElementById("personasSelect").remove()
+               if (document.getElementById("descriptionRoom")) document.getElementById("descriptionRoom").remove()
+
+               let selectPersonas = document.createElement("select")
+               let descriptionRoom = document.createElement("p")
+
+               descriptionRoom.setAttribute("id", "descriptionRoom")
+               descriptionRoom.classList.add("mt-2") // Clases para descripcion
+
+               selectPersonas.setAttribute("id", "personasSelect")
+               selectPersonas.classList.add("form-control", "mt-4")
+
+               let price = data[0].price
+               let maxPersonas = data[0]["person-max"]
+               let description = data[0].description
+
+               descriptionRoom.textContent = description;
+
+               priceCalculated.innerHTML = `El precio por noche es de: <span>${price}</span>`;
+
+               for (let i = 1; i <= maxPersonas; i++) {
+                  selectPersonas.innerHTML += `<option value=${i}>${i} personas</option>`
+               }
+
+               habitacionesElem.insertAdjacentElement("afterend", descriptionRoom)
+               habitacionesElem.insertAdjacentElement("afterend", selectPersonas)
             }
-
-            let selectPersonas = document.createElement("select")
-            selectPersonas.setAttribute("id", "personasSelect")
-            selectPersonas.classList.add("form-control", "mt-4")
-            let price = habitacionesElem.options[habitacionesElem.selectedIndex].dataset.price;
-            let maxPersonas = habitacionesElem.options[habitacionesElem.selectedIndex].dataset.max;
-            priceCalculated.innerHTML = `El precio por noche es de: <span>${price}</span>`;
-
-            for (let i = 1; i <= maxPersonas; i++) {
-               selectPersonas.innerHTML += `<option value=${i}>${i} personas</option>`
-            }
-
-            habitacionesElem.insertAdjacentElement("afterend", selectPersonas)
          })
 
       let calcular = document.getElementById('calcular');
 
-      calcular.addEventListener('click', () => {
+      calcular.addEventListener('click', async () => {
 
       let date1 = new Date(document.getElementById('date-1').value);
       let date2 = new Date(document.getElementById('date-2').value);
-      let priceSelected = habitacionesElem.options[habitacionesElem.selectedIndex]?.dataset?.price
 
-      if(date1.getTime() && date2.getTime() && priceSelected != null){
+      let selectedRoom = habitacionesElem.options[habitacionesElem.selectedIndex].text
+      const {data, success} = await fetch(`${url}habitacion/${selectedRoom}`).then(res => res.json());
+      let priceSelected = data[0].price
+
+      if(date1.getTime() && date2.getTime() && priceSelected){
          let timeDifference = date2.getTime() - date1.getTime();
          let dayDifference = Math.abs(timeDifference/(1000*3600*24));
          let priceTotal = priceSelected * dayDifference;
 
-         priceCalculated.innerHTML = `Un total de: <span>${priceTotal}</span><br>por <span>${dayDifference}</span> días`;
+         priceCalculated.innerHTML = `Un total de: <span>${priceTotal}</span>
+                                    <br>por <span>${dayDifference}</span> noches`;
       }
 
       else{

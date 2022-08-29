@@ -16,6 +16,8 @@ Route::get('/', function () {
 
 Route::get('habitaciones/{categoria}', [App\Http\Controllers\HabitacionController::class, 'getByCategory']);
 
+Route::get('habitacion/{nombre}', [App\Http\Controllers\HabitacionController::class, 'getRoomData']);
+
 Route::get('/habitaciones', function () {
     $categorias = Categoria::all();
     $habitaciones = Habitacion::all();

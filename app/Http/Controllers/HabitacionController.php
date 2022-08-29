@@ -91,7 +91,7 @@ class HabitacionController extends Controller
      * @param  \App\Models\Habitacion  $habitacion
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Habitacion $id)
+    public function destroy($id)
     {
         $habitacion=Habitacion::find($id);
         $habitacion->delete();
@@ -105,6 +105,15 @@ class HabitacionController extends Controller
         return response()->json([
             'success' => true,
             'data' => $habitaciones
+        ]);
+    }
+
+    public function getRoomData($room)
+    {
+        $habitacion = DB::table('habitacions')->where('name', $room)->get();
+        return response()->json([
+            'success' => true,
+            'data' => $habitacion
         ]);
     }
 }
