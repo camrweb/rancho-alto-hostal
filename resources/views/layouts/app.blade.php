@@ -183,28 +183,14 @@
                      <div class="form-group">
                         <label for="exampleFormControlSelect1">HABITACIONES</label>
                         <select class="form-control" id="_habitaciones">
-                           {{-- @foreach ($habitaciones as $habitacion)
+
+                        <!-- Unused Code -->
+                           <!-- {{-- @foreach ($habitaciones as $habitacion)
                               <option value="{{ $habitacion->id }}">{{ $habitacion->name }}</option>
-                           @endforeach --}}
-                           <script>
-                              const url = location.href;
-                              let idCategoriaElem = document.getElementById('_categorias');
-                              let habitacionesElem = document.getElementById('_habitaciones');
-                              idCategoriaElem.addEventListener('change', async function(){
-                                 let idCategoria = idCategoriaElem.value;
-                                 
-                                 const {data, success} = await fetch(`${url}habitaciones/${idCategoria}`)
-                                    .then(res => res.json());
-                                 if(success){
-                                    habitacionesElem.innerHTML = '';
-                                    habitacionesElem.innerHTML += `<option id="select_default">SELECCIONA</option>`;
-                                    data.forEach(habitacion => {
-                                       habitacionesElem.innerHTML += `<option value="${habitacion.id}">${habitacion.name}</option>`;
-                                    });
-                                 }
-                                 
-                              });
-                           </script>
+                           @endforeach --}} -->
+
+                           <!-- Last Script Position -->
+
                         </select>
                      </div>
                      <!--Fecha-->
@@ -352,27 +338,70 @@
       <script src="js/custom.js"></script>
       <!--Script Dashboard-->
       <script src="js/main.js"></script>
+
       <script>
+         const url = location.href;
+         let idCategoriaElem = document.getElementById('_categorias');
+         let habitacionesElem = document.getElementById('_habitaciones');
+         let priceCalculated = document.getElementById("result");
+
+         idCategoriaElem.addEventListener('change', async function(){
+            let idCategoria = idCategoriaElem.value;
+            priceCalculated.textContent = ""
+            const {data, success} = await fetch(`${url}habitaciones/${idCategoria}`).then(res => res.json());
+
+            if(success){
+               habitacionesElem.innerHTML = '';
+               habitacionesElem.innerHTML += `<option id="select_default">SELECCIONA</option>`;
+               data.forEach(habitacion => {
+                  habitacionesElem.innerHTML += `<option data-max="${habitacion['person-max']}" data-price="${habitacion.price}" value="${habitacion.id}">${habitacion.name}</option>`;
+               });
+
+            }
+            
+         });
+
+         habitacionesElem.addEventListener("change", () => {
+
+            if (document.getElementById("personasSelect")) {
+               document.getElementById("personasSelect").remove()
+            }
+
+            let selectPersonas = document.createElement("select")
+            selectPersonas.setAttribute("id", "personasSelect")
+            selectPersonas.classList.add("form-control", "mt-4")
+            let price = habitacionesElem.options[habitacionesElem.selectedIndex].dataset.price;
+            let maxPersonas = habitacionesElem.options[habitacionesElem.selectedIndex].dataset.max;
+            priceCalculated.innerHTML = `El precio por noche es de: <span>${price}</span>`;
+
+            for (let i = 1; i <= maxPersonas; i++) {
+               selectPersonas.innerHTML += `<option value=${i}>${i} personas</option>`
+            }
+
+            habitacionesElem.insertAdjacentElement("afterend", selectPersonas)
+         })
+
       let calcular = document.getElementById('calcular');
-      let result = document.getElementById('result');
-      console.log('holaaa')
 
       calcular.addEventListener('click', () => {
+
       let date1 = new Date(document.getElementById('date-1').value);
       let date2 = new Date(document.getElementById('date-2').value);
+      let priceSelected = habitacionesElem.options[habitacionesElem.selectedIndex]?.dataset?.price
 
-      if(date1.getTime() && date2.getTime()){
+      if(date1.getTime() && date2.getTime() && priceSelected != null){
          let timeDifference = date2.getTime() - date1.getTime();
-
          let dayDifference = Math.abs(timeDifference/(1000*3600*24));
-         result.innerHTML = `Un total de <span> ${dayDifference} </span> dias`;
+         let priceTotal = priceSelected * dayDifference;
+
+         priceCalculated.innerHTML = `Un total de: <span>${priceTotal}</span><br>por <span>${dayDifference}</span> días`;
       }
 
       else{
-         result.innerHTML = "por favor seleccione una fecha valida";
+         priceCalculated.innerHTML = "por favor seleccione una fecha valida";
       }
     
-})
+      })
       </script>
       </div>
 </body>
