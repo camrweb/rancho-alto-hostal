@@ -30,6 +30,14 @@
                   <td>{{ $habitacion->description }}</td>
                   <td>{{ $habitacion['person-max'] }}</td>
                   <td>{{ $habitacion->price }}</td>
+                  <td>
+                    <button>Editar</button>
+                    <form method="post" action="{{ route('habitacion.delete', $habitacion->id) }}" class="delete-form">
+                      @csrf
+                      @method('DELETE')
+                    <button type="submit" class="delete">Eliminar</button>
+                    </form>
+                </td>
                 </tr>
               @endforeach
             </tbody>

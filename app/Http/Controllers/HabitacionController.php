@@ -91,9 +91,12 @@ class HabitacionController extends Controller
      * @param  \App\Models\Habitacion  $habitacion
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Habitacion $habitacion)
+    public function destroy(Habitacion $id)
     {
-        //
+        $habitacion=Habitacion::find($id);
+        $habitacion->delete();
+        $habitaciones=Habitacion::all();
+        return redirect()->back();
     }
 
     public function getByCategory($categoria)

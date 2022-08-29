@@ -17,19 +17,27 @@ Route::get('/', function () {
 Route::get('habitaciones/{categoria}', [App\Http\Controllers\HabitacionController::class, 'getByCategory']);
 
 Route::get('/habitaciones', function () {
-    return view('habitaciones.index');
+    $categorias = Categoria::all();
+    $habitaciones = Habitacion::all();
+    return view('habitaciones.index')->with('categorias', $categorias)->with('habitaciones', $habitaciones);
 })->name('habitaciones');
 
 Route::get('/galeria', function () {
-    return view('galeria.index');
+    $categorias = Categoria::all();
+    $habitaciones = Habitacion::all();
+    return view('galeria.index')->with('categorias', $categorias)->with('habitaciones', $habitaciones);
 })->name('galeria');
 
 Route::get('/contactanos', function () {
-    return view('contactanos.index');
+    $categorias = Categoria::all();
+    $habitaciones = Habitacion::all();
+    return view('contactanos.index')->with('categorias', $categorias)->with('habitaciones', $habitaciones);
 })->name('contactanos');
 
 Route::get('/acerca-de', function () {
-    return view('acerca-de.index');
+    $categorias = Categoria::all();
+    $habitaciones = Habitacion::all();
+    return view('acerca-de.index')->with('categorias', $categorias)->with('habitaciones', $habitaciones);
 })->name('acerca-de');
 
 
@@ -61,6 +69,7 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function () {
     Route::get('/habitaciones/{categoria}/create', [App\Http\Controllers\HabitacionController::class, 'create'])->name('habitacion.create');
     Route::get('/habitaciones/{categoria}', [App\Http\Controllers\HabitacionController::class, 'index'])->name('habitaciones.show');
     Route::post('/habitaciones/{categoria}/store', [App\Http\Controllers\HabitacionController::class, 'store'])->name('habitacion.store');
+    Route::delete('/admin/habitaciones/{categoria}/delete', [App\Http\Controllers\HabitacionController::class, 'destroy'])->name('habitacion.delete');
 
 
     //Usuarios
