@@ -2,13 +2,14 @@
 @section('admin')
 
 
-<button class="delete-form">
-  <a href="/admin/habitaciones/{{$categoria}}/create">
-      CREAR
-  </a>
-</button>
+
 
 <section class="attendance">
+  <button class="button-crear-index">
+    <a href="/admin/habitaciones/{{$categoria}}/create">
+        CREAR
+    </a>
+  </button>
         <div class="attendance-list">
           <h1>{{ $categoria }}</h1>
           <table class="table">
@@ -31,11 +32,14 @@
                   <td>{{ $habitacion['person-max'] }}</td>
                   <td>{{ $habitacion->price }}</td>
                   <td>
-                    <button>Editar</button>
+                    <form action="{{ route('habitacion.edit', $habitacion->name) }}" method="POST">
+                      @csrf 
+                      <button type="submit">Editar</button>
+                    </form> 
                     <form method="post" action="{{ route('habitacion.delete', $habitacion->id) }}" class="delete-form">
                       @csrf
                       @method('DELETE')
-                    <button type="submit" class="delete">Eliminar</button>
+                      <button type="submit" class="delete">Eliminar</button>
                     </form>
                 </td>
                 </tr>

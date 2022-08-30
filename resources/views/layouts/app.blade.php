@@ -31,6 +31,7 @@
             }
         </style>
     <!-- Scripts -->
+    <script src="sweetalert2.all.min.js"></script>
     <script src="{{ asset('js/app.js') }}" defer></script>
 
     <!-- Fonts -->
@@ -85,7 +86,7 @@
                                  <a class="nav-link" href="{{ route('contactanos') }}">CONTÁCTENOS</a>
                               </li>
                               <li>
-                                <button on:click=(showAlert) class="btn btn-danger mr-2 reservar-alert" data-toggle="modal" data-target="#exampleModal">RESERVAR AHORA</button>
+                                <button id="swal_Alert" class="btn btn-danger mr-2 reservar-alert" data-toggle="modal" data-target="#exampleModal">RESERVAR AHORA</button>
                              </li>
                              @if (Auth::check())
          <!-- Modal -->
@@ -193,6 +194,7 @@
 
                         </select>
                      </div>
+                     {{-- PersonMaxima --}}
                      <!--Fecha-->
                      <div class="row">
                         <div class="col">
@@ -220,6 +222,9 @@
             </div>
          </div>
          @else
+         <script>
+            document.getElementById("swal_Alert").addEventListener("click", () => alert("Inicia sesion para reservar por favor."));
+         </script>
       @endif
                               @guest
                             @if (Route::has('login'))
@@ -379,7 +384,7 @@
                let descriptionRoom = document.createElement("p")
 
                descriptionRoom.setAttribute("id", "descriptionRoom")
-               descriptionRoom.classList.add("mt-2") // Clases para descripcion
+               descriptionRoom.classList.add("mt-1", "ml-1", "mr-1") // Clases para descripcion
 
                selectPersonas.setAttribute("id", "personasSelect")
                selectPersonas.classList.add("form-control", "mt-4")
@@ -388,12 +393,16 @@
                let maxPersonas = data[0]["person-max"]
                let description = data[0].description
 
-               descriptionRoom.textContent = description;
+               descriptionRoom.innerHTML =`<blockquote class="blockquote">
+                                             <p "mb-0">DESCRIPCION</p>
+                                             <footer class="blockquote-footer"><cite title="Descripcion">${description}</cite></footer>
+                                           </blockquote>`;
 
                priceCalculated.innerHTML = `El precio por noche es de: <span>${price}</span>`;
 
                for (let i = 1; i <= maxPersonas; i++) {
-                  selectPersonas.innerHTML += `<option value=${i}>${i} personas</option>`
+                  selectPersonas.innerHTML += `<label for="exampleFormControlSelect1" >MAXIMO DE PERSONAS</label>
+                                                <br><option value=${i}>${i} personas</option>`
                }
 
                habitacionesElem.insertAdjacentElement("afterend", descriptionRoom)

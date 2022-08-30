@@ -5,6 +5,18 @@
   <title>Dashboard | RANCHO ALTO</title>
   <link rel="stylesheet" href="{{ asset('css/styles.css') }}" />
   <!-- Font Awesome Cdn Link -->
+  {{-- Google Material Icons --}}
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Material+Icons">
+  {{-- Google Material Icons Outlined --}}
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Material+Icons+Outlined">
+  {{-- Google Material Icons Two Tone --}}
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Material+Icons+Two+Tone">
+  {{-- Google Material Icons Rounded --}}
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Material+Icons+Round">
+  {{-- Google Material Icons Sharp --}}
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Material+Icons+Sharp">
+  
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Condensed&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
   <!--Script-->
 

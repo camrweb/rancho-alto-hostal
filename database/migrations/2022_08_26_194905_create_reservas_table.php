@@ -21,6 +21,7 @@ class CreateReservasTable extends Migration
             ->references('id')->on('users')->onDelete('cascade');
             $table->foreign('habitacion_id')
             ->references('id')->on('habitacions')->onDelete('cascade');
+            $table->string('person_max');
             $table->date('check_in');
             $table->date('check_out');
             $table->double('precio_final', 10, 2);

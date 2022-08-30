@@ -10,7 +10,7 @@
   font-family: "Poppins", sans-serif;
 }
 body{
-  background: rgb(226, 226, 226);
+  background: rgb(255, 255, 255);
 }
 nav{
   position: sticky;
@@ -83,27 +83,6 @@ a:hover i{
   display: flex;
 }
 
-/* MAin Section */
-.main{
-  position: relative;
-  padding: 20px;
-  width: 100%;
-}
-.main-top{
-  display: flex;
-  width: 100%;
-}
-.main-top i{
-  position: absolute;
-  right: 0;
-  margin: 10px 30px;
-  color: rgb(110, 109, 109);
-  cursor: pointer;
-}
-.main .users{
-  display: flex;
-  width: 100%;
-}
 .users .card{
   width: 25%;
   margin: 10px;
@@ -155,13 +134,12 @@ a:hover i{
 
 /*Attendance List serction  */
 .attendance{
-  margin-top: 20px;
+  margin-top: 100px;
   text-transform: capitalize;
 }
 .attendance-list{
   width: 1200px;
   padding: 10px;
-  margin-top: 100px;
   margin-left: 20px;
   background: #fff;
   border-radius: 10px;
@@ -282,3 +260,103 @@ button input.create:hover{
 .delete-form{
   display: inline-block;
 }
+
+button{
+  background-color: rgba(251, 251, 251, 0);
+}
+
+a{
+  background-color: #ffffff;
+}
+
+.button-crear-index a{
+  left: 20px;
+  width: 100px;
+  border: 1px solid #4ada8a;
+  border-radius: 10px;
+  background-color: #ffff;
+}
+
+.button-crear-index a:hover{
+  border-radius: 10px;
+  background-color: #4ada8a;
+  color: #fff;
+}
+
+#input-crear-form{
+  font-size: 20px;
+  height: 45px;
+  background-color: #00000000;
+  border: 2px solid #4ada8a;
+  cursor: pointer;
+}
+
+#input-crear-form:hover{
+  font-size: 20px;
+  height: 45px;
+  background-color: #4ada8a;
+  border: 2px solid #4ada8a;
+  cursor: pointer;
+}
+
+
+.button-crear a{
+  margin-top: 20px;
+  margin-left: 20px;
+  width: 100px;
+  border: 1px solid #4ada8a;
+  border-radius: 10px;
+  background-color: #ffff;
+}
+
+.button-crear a:hover{
+  border-radius: 10px;
+  background-color: #4ada8a;
+  color: #fff;
+}
+
+.form-admin{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-49%, -49%);
+}
+
+.hrhabitaciones{
+  width: 700px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  border: 1.5px solid #4ada8a;
+  border-radius: 2px;
+}
+
+.hrcategorias{
+  width: 700px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  border: 1.5px solid #4ada8a;
+  border-radius: 2px;
+}
+
+.form-admin input {
+  font-family: 'Ubuntu Condensed', sans-serif;
+  font-size: 20px;
+  padding: 5px 5px 5px 5px;
+  border: 1px solid #000000;
+  border-radius: 8px;
+  width: 90%;
+  height: 30px;
+  margin: 0.5rem;
+}
+.form-admin textarea{
+  font-family: 'Ubuntu Condensed', sans-serif;
+  font-size: 20px;
+  padding: 5px 5px 5px 5px;
+  border: 1px solid #000000;
+  border-radius: 8px;
+  width: 90%;
+  height: 30px;
+  margin: 0.5rem;
+}
+
+

@@ -68,9 +68,9 @@ class HabitacionController extends Controller
      * @param  \App\Models\Habitacion  $habitacion
      * @return \Illuminate\Http\Response
      */
-    public function edit(Habitacion $habitacion)
+    public function edit(Habitacion $habitacion, $categoria)
     {
-        //
+        return view('admin.habitaciones.edit')->with('habitacion', $habitacion)->with('categoria', $categoria);
     }
 
     /**
