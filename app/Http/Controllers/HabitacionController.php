@@ -21,6 +21,13 @@ class HabitacionController extends Controller
         return view('admin.habitaciones.index')->with('categoria', $name)->with('habitaciones', $habitaciones);
     }
 
+    public function pdf($categoria, $habitacion)
+    {
+        $habitacion=Habitacion::paginate();
+        $categoria=Categoria::paginate();
+        return view('admin.habitaciones.pdf')->with('categoria', $categoria)->with('habitacion', $habitacion);
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -68,11 +75,13 @@ class HabitacionController extends Controller
      * @param  \App\Models\Habitacion  $habitacion
      * @return \Illuminate\Http\Response
      */
-    public function edit(Habitacion $habitacion, $categoria)
+    public function edit($id)
     {
-        return view('admin.habitaciones.edit')->with('habitacion', $habitacion)->with('categoria', $categoria);
+        $habitacion=Habitacion::find($id);
+        $categoria=Categoria::pluck('name');
+        return view('admin.habitaciones.edit')->with('habitacion',$habitacion)->with('categoria', $categoria);
     }
-
+    
     /**
      * Update the specified resource in storage.
      *

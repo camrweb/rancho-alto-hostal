@@ -73,7 +73,7 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function () {
     Route::post('/habitaciones/{categoria}/store', [App\Http\Controllers\HabitacionController::class, 'store'])->name('habitacion.store');
     Route::post('/habitaciones/{categoria}/edit', [App\Http\Controllers\HabitacionController::class, 'edit'])->name('habitacion.edit');
     Route::delete('/admin/habitaciones/{categoria}/delete', [App\Http\Controllers\HabitacionController::class, 'destroy'])->name('habitacion.delete');
-
+    Route::get('/habitaciones/{categoria}/pdf', [App\Http\Controllers\HabitacionController::class, 'pdf'])->name('habitaciones.pdf');
 
     //Usuarios
     Route::get('/usuarios', [App\Http\Controllers\UserController::class, 'index'])->name('usuarios');

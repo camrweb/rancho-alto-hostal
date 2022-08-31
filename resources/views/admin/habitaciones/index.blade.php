@@ -10,6 +10,11 @@
         CREAR
     </a>
   </button>
+  <button class="button-pdf-index">
+    <a href="/admin/habitaciones/{{ $categoria }}/pdf">
+        PDF
+    </a>
+  </button>
         <div class="attendance-list">
           <h1>{{ $categoria }}</h1>
           <table class="table">
@@ -41,7 +46,7 @@
                       @method('DELETE')
                       <button type="submit" class="delete">Eliminar</button>
                     </form>
-                </td>
+                  </td>
                 </tr>
               @endforeach
             </tbody>

@@ -12,6 +12,7 @@ class Habitacion extends Model
         'name','price','description','person-max','categoria_id'
     ];
     public function Categoria(){
-        return $this->belongsTo('App\Models\Categoria');
+        // return $this->belongsTo('App\Models\Categoria');
+        return $this->belongsTo(Categoria::class,'categoria_id');
     }
 }

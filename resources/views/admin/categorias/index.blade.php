@@ -7,7 +7,12 @@
     <a href="{{ route('create')}}">
         CREAR
     </a>
-  </button> 
+  </button>
+  <button class="button-pdf-index">
+    <a href="">
+        PDF
+    </a>
+  </button>
         <div class="attendance-list">
           <h1>CATEGORIAS</h1>
           <table class="table">

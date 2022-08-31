@@ -12,6 +12,7 @@ class Categoria extends Model
         'name'
     ];
     public function Habitacion(){
-        return $this->hasMany('App\Models\Habitacion');
+        // return $this->hasMany('App\Models\Habitacion');
+        return $this->hasMany(Habitacion::class,'id');
     }
 }
