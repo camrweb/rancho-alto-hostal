@@ -9,7 +9,7 @@ class Habitacion extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'name','price','description','person-max','categoria_id'
+        'name','price','foto','description','person-max','categoria_id'
     ];
     public function Categoria(){
         // return $this->belongsTo('App\Models\Categoria');

@@ -5,14 +5,30 @@ use App\Http\Controllers\CategoriaController;
 use App\Models\Categoria;
 use App\Models\Habitacion;
 
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider within a group which
+| contains the "web" middleware group. Now create something great!
+|
+*/
 
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
+
+require __DIR__.'/auth.php';
 
 //USUARIOS
 Route::get('/', function () {
     $categorias = Categoria::all();
     $habitaciones = Habitacion::all();
     return view('welcome')->with('categorias', $categorias)->with('habitaciones', $habitaciones);
-})->name('index');
+})->middleware(['auth','verified'])->name('index');
 
 Route::get('habitaciones/{categoria}', [App\Http\Controllers\HabitacionController::class, 'getByCategory']);
 
@@ -65,15 +81,17 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function () {
     Route::get('/categorias/{id}/delete', [App\Http\Controllers\CategoriaController::class, 'destroy'])->name('categoria.delete');
     Route::get('categorias/create', [App\Http\Controllers\CategoriaController::class, 'create'])->name('create');
     Route::post('categorias', [App\Http\Controllers\CategoriaController::class, 'store'])->name('store');
+    Route::get('/categorias/pdf', [App\Http\Controllers\CategoriaController::class, 'pdf'])->name('categorias.pdf');
     Route::get('/getCategorias', [App\Http\Controllers\CategoriaController::class, 'getCategorias']);
 
     //HABITACIONES
     Route::get('/habitaciones/{categoria}/create', [App\Http\Controllers\HabitacionController::class, 'create'])->name('habitacion.create');
     Route::get('/habitaciones/{categoria}', [App\Http\Controllers\HabitacionController::class, 'index'])->name('habitaciones.show');
     Route::post('/habitaciones/{categoria}/store', [App\Http\Controllers\HabitacionController::class, 'store'])->name('habitacion.store');
-    Route::post('/habitaciones/{categoria}/edit', [App\Http\Controllers\HabitacionController::class, 'edit'])->name('habitacion.edit');
+    Route::get('/habitaciones/{categoria}/edit', [App\Http\Controllers\HabitacionController::class, 'edit'])->name('habitacion.edit');
     Route::delete('/admin/habitaciones/{categoria}/delete', [App\Http\Controllers\HabitacionController::class, 'destroy'])->name('habitacion.delete');
     Route::get('/habitaciones/{categoria}/pdf', [App\Http\Controllers\HabitacionController::class, 'pdf'])->name('habitaciones.pdf');
+    Route::put('/habitaciones/{categoria}/update',[App\Http\Controllers\HabitacionController::class, 'update'])->name('habitacion.update');
 
     //Usuarios
     Route::get('/usuarios', [App\Http\Controllers\UserController::class, 'index'])->name('usuarios');

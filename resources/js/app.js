@@ -1,15 +1,7 @@
-require('./bootstrap');
+import './bootstrap';
 
-const rooms_menu=document.getElementById ('rooms-menu');
-console.log('error')
+import Alpine from 'alpinejs';
 
-rooms_menu.addEventListener('click',()=>{
-    let submenu=document.getElementById('rooms-submenu')
-    if (submenu.classList.contains('hidden')) {
-        submenu.classList.remove('hidden')
-    }
-    else{
-        submenu.classList.add('hidden')
-    }
-})
+window.Alpine = Alpine;
 
+Alpine.start();

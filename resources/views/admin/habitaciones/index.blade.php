@@ -11,7 +11,7 @@
     </a>
   </button>
   <button class="button-pdf-index">
-    <a href="/admin/habitaciones/{{ $categoria }}/pdf">
+    <a href="/admin/habitaciones/{{ $categoria }}/pdf" target="_blank">
         PDF
     </a>
   </button>
@@ -20,28 +20,33 @@
           <table class="table">
             <thead>
               <tr>
-                <th>ID</th>
-                <th>Nombre</th>
-                <th>Descripcion</th>
-                <th>Personas Max</th>
-                <th>Precio</th>
-                <th>Acciones</th>
+                <th align="center">ID</th>
+                <th align="center">Foto</th>
+                <th align="center">Nombre</th>
+                <th align="center">Descripcion</th>
+                <th align="center">Personas Max</th>
+                <th align="center">Precio</th>
+                <th align="center">Acciones</th>
               </tr>
             </thead>
             <tbody>
               @foreach ($habitaciones as $habitacion)
                 <tr>
-                  <td>{{ $habitacion->id }}</td>
-                  <td>{{ $habitacion->name }}</td>
-                  <td>{{ $habitacion->description }}</td>
-                  <td>{{ $habitacion['person-max'] }}</td>
-                  <td>{{ $habitacion->price }}</td>
-                  <td>
-                    <form action="{{ route('habitacion.edit', $habitacion->name) }}" method="POST">
+                  <td align="center">{{ $habitacion->id }}</td>
+
+                  <td align="center"><img src="{{ asset('storage'.'/'.$habitacion->foto) }}" width="200" alt=""></td>
+
+                  <td align="center">{{ $habitacion->name }}</td>
+                  <td align="center">{{ $habitacion->description }}</td>
+                  <td align="center">{{ $habitacion['person-max'] }}</td>
+                  <td align="center">{{ $habitacion->price }}</td>
+                  <td align="center">
+                    <form action= "/admin/habitaciones/{{ $habitacion->id }}/edit" method="GET" class="edit-button">
                       @csrf 
                       <button type="submit">Editar</button>
                     </form> 
-                    <form method="post" action="{{ route('habitacion.delete', $habitacion->id) }}" class="delete-form">
+                    |
+                    <form method="post" action="{{ route('habitacion.delete', $habitacion->id) }}" class="delete-form" >
                       @csrf
                       @method('DELETE')
                       <button type="submit" class="delete">Eliminar</button>

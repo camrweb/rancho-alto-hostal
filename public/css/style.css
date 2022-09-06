@@ -315,6 +315,30 @@ button {
      background: #000;
 }
 
+.item_name{
+     font-size: 16px;
+     margin-bottom: 20px;
+}
+
+.nav_link{
+     padding: 0px 0px 0px 0px;
+     height: 50px;
+     color: #010101;
+     font-size: 16px;
+     font-weight: 500;
+     text-transform: uppercase;
+     border-bottom: #fff solid 3px;
+}
+
+.drop_menu{
+     margin: 0 !important;
+}
+
+.nav_link:hover{
+     color: #e53b3b;
+}
+
+
 .banner .carousel-indicators .active {
      background-color: #fe0000;
 }
@@ -961,7 +985,12 @@ line-height: 35px;
      color: #d44a4a;
      font-weight: 600;
      font-size: 1.2em;
-   }
+}
+
+.modal-footer{
+     background-color: #ffff;
+     border: none;
+}
 
 
 

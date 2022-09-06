@@ -8,7 +8,22 @@
         CREAR CATEGORIA
     </h1>
     <hr class="hrcategorias">
-    <input type="text" name="nombre" id="Nombre" placeholder="NOMBRE DE CATEGORIA">
+
+
+    @if (count($errors) > 0)
+            <div>
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li style="color: red">
+                            {{ $error }}
+                        </li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
+
+    <input type="text" name="nombre" id="nombre" placeholder="NOMBRE DE CATEGORIA">
     <br>
     <input type="submit" id="input-crear-form" name="crear" value="CREAR">
 </form>

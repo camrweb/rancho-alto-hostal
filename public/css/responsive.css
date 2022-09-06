@@ -19,10 +19,9 @@
     }
 }
 
+
 @media (min-width: 768px) and (max-width: 991px) {
-    .navigation.navbar-dark .navbar-nav .nav-link {
-        margin: 0 10px;
-    }
+
     .carousel-item img {
         min-height: 570px;
     }
@@ -63,7 +62,7 @@
     ul.link_menu {
         margin-bottom: 20px;
     }
-    .navigation.navbar {
+    .navigation.navbar { 
         float: right;
         display: inherit !important;
         padding: 0;

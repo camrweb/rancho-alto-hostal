@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Categoria;
+use App\Models\Habitacion;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
+use PDF;
 
 class CategoriaController extends Controller
 {
@@ -17,6 +19,17 @@ class CategoriaController extends Controller
     {
         $categorias=Categoria::all();
         return view ('admin.categorias.index')->with('categorias',$categorias);
+    }
+
+
+    public function pdf(Categoria $categoria)
+    {
+        $categorias=Categoria::all();
+        $pdf = PDF::loadView('admin.categorias.pdf', ['categorias'=>$categorias]);
+        PDF::setOption(['dpi' =>60]);
+        // return $pdf->stream();
+        return $pdf->download('datos.pdf');
+        // $pdf->loadHTML('<h1>Test</h1>');
     }
 
     /**
@@ -38,6 +51,18 @@ class CategoriaController extends Controller
      */
     public function store(Request $request)
     {
+
+
+        $campos=[
+            'nombre'=>'required|string|max:100'
+        ];
+
+        $mensaje=[
+            'nombre.required'=>'El nombre es requerido'
+        ];
+
+        $this->validate($request,$campos,$mensaje);
+
         $categoria = new Categoria();
         $categoria->name = $request->nombre;
         $categoria->save();
@@ -61,9 +86,10 @@ class CategoriaController extends Controller
      * @param  \App\Models\Categoria  $categoria
      * @return \Illuminate\Http\Response
      */
-    public function edit(Categoria $categoria)
+    public function edit()
     {
-        //
+        $categoria=Categoria::all();
+        return view('admin.categorias.edit')->with('categoria', $categoria);
     }
 
     /**
@@ -73,9 +99,14 @@ class CategoriaController extends Controller
      * @param  \App\Models\Categoria  $categoria
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Categoria $categoria)
+    public function update(Request $request, $id)
     {
         //
+        $categoria = Categoria::find($id);
+        $categoria->name = $request->nombre;
+        $categoria->save();
+
+        return redirect()->back()->with('succes','Actualizado con exito!');
     }
 
     /**
@@ -86,7 +117,6 @@ class CategoriaController extends Controller
      */
     public function destroy($id)
     {
-        Log::Debug($id);
         $categoria=Categoria::find($id);
         $categoria->delete();
         $categorias=Categoria::all();
@@ -96,7 +126,6 @@ class CategoriaController extends Controller
     public function getCategorias()
     {
         $categorias=Categoria::all();
-        Log::Debug($categorias);
         return $categorias;
     }
 }

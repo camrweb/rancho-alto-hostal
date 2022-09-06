@@ -1,89 +1,49 @@
 @extends('layouts.app')
-
+@section('title', 'Contactanos')
 @section('content')
-<div class="container" style="height: auto;">
-    <div class="row align-items-center">
-      <div class="col-lg-4 col-md-6 col-sm-8 ml-auto mr-auto">
-        <form class="form" method="POST" action="{{ route('register') }}">
-          @csrf
-  
-          <div class="card card-login card-hidden mb-3">
-            <div class="card-header card-header-primary text-center">
-              <h4 class="card-title"><strong>{{ __('Register') }}</strong></h4>
-              <div class="social-line">
-                <a href="#pablo" class="btn btn-just-icon btn-link btn-white">
-                  <i class="fa fa-facebook-square"></i>
-                </a>
-                <a href="#pablo" class="btn btn-just-icon btn-link btn-white">
-                  <i class="fa fa-twitter"></i>
-                </a>
-                <a href="#pablo" class="btn btn-just-icon btn-link btn-white">
-                  <i class="fa fa-google-plus"></i>
-                </a>
-              </div>
-            </div>
-            <div class="card-body ">
-              <p class="card-description text-center">{{ __('Or Be Classical') }}</p>
-              <div class="bmd-form-group{{ $errors->has('name') ? ' has-danger' : '' }}">
-                <div class="input-group">
-                  <input type="text" name="name" class="form-control" placeholder="{{ __('Nombre') }}" value="{{ old('name') }}" required>
-                </div>
-                @if ($errors->has('name'))
-                  <div id="name-error" class="error text-danger pl-3" for="name" style="display: block;">
-                    <strong>{{ $errors->first('name') }}</strong>
-                  </div>
-                @endif
-              </div>
-              <div class="bmd-form-group{{ $errors->has('email') ? ' has-danger' : '' }} mt-3">
-                <div class="input-group">
-                  <input type="email" name="email" class="form-control" placeholder="{{ __('Email') }}" value="{{ old('email') }}" required>
-                </div>
-                @if ($errors->has('email'))
-                  <div id="email-error" class="error text-danger pl-3" for="email" style="display: block;">
-                    <strong>{{ $errors->first('email') }}</strong>
-                  </div>
-                @endif
-                <div class="row mb-3 mt-3">
-                    <div class="col-md-6">
-                        <input id="phone" placeholder="Telefono" type="text" class="form-control @error('phone') is-invalid @enderror" name="phone" value="{{ old('phone') }}" required autocomplete="phone">
+<link rel="stylesheet" href="{{ asset('css/form-login-register.css') }}">
 
-                        @error('phone')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                        @enderror
-                    </div>
-                </div>
-              </div>
-              <div class="bmd-form-group{{ $errors->has('password') ? ' has-danger' : '' }} mt-3">
-                <div class="input-group">
-                  <input type="password" name="password" id="password" class="form-control" placeholder="{{ __('Contraseña') }}" required>
-                </div>
-                @if ($errors->has('password'))
-                  <div id="password-error" class="error text-danger pl-3" for="password" style="display: block;">
-                    <strong>{{ $errors->first('password') }}</strong>
-                  </div>
-                @endif
-              </div>
-              <div class="bmd-form-group{{ $errors->has('password_confirmation') ? ' has-danger' : '' }} mt-3">
-                <div class="input-group">
-                  <input type="password" name="password_confirmation" id="password_confirmation" class="form-control" placeholder="{{ __('Confirmar contraseña') }}" required>
-                </div>
-                @if ($errors->has('password_confirmation'))
-                  <div id="password_confirmation-error" class="error text-danger pl-3" for="password_confirmation" style="display: block;">
-                    <strong>{{ $errors->first('password_confirmation') }}</strong>
-                  </div>
-                @endif
-              </div>
+        <form method="POST" class="login-form" action="{{ route('register') }}">
+            @csrf
+            <h2 class="form_tittle">Inicia sesion</h2>
+            <p class="form_paragraph">¿Aún no tienes cuenta? <a href="{{ route('register') }}" 	class="form_link">Entra aqui</a></p>
+            <div class="form_container">
+            <!-- Name -->
+            <div class="form_group">
+                <input id="name" class="form_input" type="text" name="name" placeholder=" " required autofocus>
+                <label for="name" class="form_label1">Nombre</label>
+                <span class="form_line"></span>
             </div>
-            <div class="card-footer justify-content-center">
-                <div class="col text-center">
-                    <button type="submit" class="btn btn-outline-danger ">{{ __('Create account') }}</button>
-                </div>
+
+            <!-- Email Address -->
+            <div class="form_group">
+                <input id="email" class="form_input" type="email" name="email" placeholder=" " required >
+                <label for="email" class="form_label1">Email</label>
+                <span class="form_line"></span>
             </div>
-          </div>
+
+            <!-- Phone -->
+            <div class="form_group">
+                <input id="phone" class="form_input" type="number" name="phone" placeholder=" " required >
+                <label for="phone" class="form_label1">Telefono</label>
+                <span class="form_line"></span>
+            </div>
+
+            <!-- Password -->
+            <div class="form_group">
+                <input id="password" class="form_input" type="password" name="password" placeholder=" " required autocomplete="new-password" >
+                <label for="password" class="form_label1">Contraseña</label>
+                <span class="form_line"></span>
+            </div>
+
+            <!-- Confirm Password -->
+            <div class="form_group">
+                <input id="password_confirmation" class="form_input" type="password" placeholder=" " name="password_confirmation" required>
+                <label for="password_confirmation" class="form_label1">Confirmar contraseña</label>
+                <span class="form_line"></span>
+            </div>
+                <input type="submit" class="form_submit" value="REGISTRARSE">
+        </div>
         </form>
-      </div>
-    </div>
-  </div>
+
 @endsection

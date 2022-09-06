@@ -5,6 +5,8 @@
   <title>Dashboard | RANCHO ALTO</title>
   <link rel="stylesheet" href="{{ asset('css/styles.css') }}" />
   <!-- Font Awesome Cdn Link -->
+  <!-- fevicon -->
+  <link rel="icon" href="{{ asset('images/rancho_alto_logo_2.png') }}" type="image/gif" />
   {{-- Google Material Icons --}}
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Material+Icons">
   {{-- Google Material Icons Outlined --}}
@@ -81,6 +83,7 @@
 
     <!--Script-->
     <script src="{{ asset('js/admin.js') }}"></script>
+    
 
   </body>
 </html>

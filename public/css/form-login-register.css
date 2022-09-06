@@ -1,0 +1,137 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Roboto', sans-serif;
+    background-color: #e5e5f7;
+    background-image: radial-gradient(#ff6969 1.05px, #e5e5f7 1.05px);
+    background-size: 21px 21px;
+}
+
+.login-form{
+    margin-top: 30px;
+    background-color: #fff;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+    max-width: 400px;
+    padding: 4.5em 3em;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px -5px rgb(0 0 0 / 30%);
+    text-align: center;
+
+}
+
+.form_tittle{
+    font-size: 2rem;
+    margin-bottom: .5em;
+}
+
+.form_paragraph{
+    font-weight: 300;
+}
+
+.form_link{
+    font-weight: 400;
+    color: #000;
+}
+
+.form_link:hover{
+    color: #e53b3b;
+}
+
+.form_container{
+    margin-top: 3em;
+    display: grid;
+    gap: 2.5em;
+
+}
+
+.form_group{
+    position: relative;
+    --color: rgb(118, 118, 118);
+}
+
+.form_input{
+    width: 100%;
+    background: none;
+    color: var(--color);
+    font-size: 1rem;
+    padding: .6em .3em;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid rgb(54, 54, 54);
+    font-family: 'Roboto', sans-serif;
+}
+
+
+.form_input:focus + .form_label1,
+.form_input:not(:placeholder-shown) + .form_label1{
+    transform: translateY(-12px) scale(.7);
+    transform-origin: left top;
+    color: var(--color);
+}
+
+.form_label1{
+    color: var(--color);
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    left: 5px;
+    transform: translateY(10px);
+    transition: transform .5s, color .3s;
+}
+
+.form_submit{
+    background-color: #e53b3b;
+    color: #fff;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 1rem;
+    padding: .8em 0;
+    border: none;
+    border-radius: .5em;
+    transition-duration: 1s;
+}
+
+.form_submit:hover{
+    transition-duration: 1s;
+    background-color: #ff6969;
+    color: #fff;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 1rem;
+    padding: .8em 0;
+    border: none;
+    border-radius: .5em;
+}
+
+.form_line{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: rgb(237, 76, 76);
+    transform: scale(0);
+    transform: left bottom;
+    transition: transform .4s;
+}
+
+.form_input:focus ~ .form_line,
+.form_input:not(:placeholder-shown) ~ .form_line{
+    transform: scale(1);
+}
+
+@media (max-width:425px){
+    .form_tittle{
+        font-size: 1.8rem;
+
+    }
+}

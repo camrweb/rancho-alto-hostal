@@ -67,6 +67,9 @@ nav .fas{
   top: 12px;
   margin-left: 10px;
 }
+
+
+
 a:hover{
   background: #eee;
 }
@@ -206,6 +209,10 @@ button.delete:hover{
   transition: 0.5rem;
 }
 
+.edit-button{
+  display: inline-block;
+}
+
 a.create{
   position: absolute;
   margin-left: 20px;
@@ -297,7 +304,10 @@ a{
   color: #fff;
 }
 
+
 #input-crear-form{
+  position: relative;
+  top: 140px;
   font-size: 20px;
   height: 45px;
   background-color: #00000000;
@@ -352,10 +362,35 @@ a{
   border-radius: 2px;
 }
 
+/*Archivos*/
+
+
+.file{
+  width: 90%;
+  height: 30px;
+  margin: 0.5rem;
+}
+
+#nombre_archivo{
+  margin-bottom: 10px;
+}
+
+.file input{
+  display: none;
+}
+
+.file label{
+  padding: 8px 21px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #4ada8a;
+  cursor: pointer;
+  
+}
+
 .form-admin input {
   font-family: 'Ubuntu Condensed', sans-serif;
   font-size: 20px;
-  padding: 5px 5px 5px 5px;
   border: 1px solid #000000;
   border-radius: 8px;
   width: 90%;
@@ -365,7 +400,7 @@ a{
 .form-admin textarea{
   font-family: 'Ubuntu Condensed', sans-serif;
   font-size: 20px;
-  padding: 5px 5px 5px 5px;
+  padding-bottom: 100px;
   border: 1px solid #000000;
   border-radius: 8px;
   width: 90%;

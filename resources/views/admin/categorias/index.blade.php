@@ -9,7 +9,7 @@
     </a>
   </button>
   <button class="button-pdf-index">
-    <a href="">
+    <a href="{{ route('categorias.pdf') }}" target="_blank">
         PDF
     </a>
   </button>
@@ -18,18 +18,21 @@
           <table class="table">
             <thead>
               <tr>
-                <th>ID</th>
-                <th>Nombre</th>
-                <th>Acciones</th>
+                <th align="center" align="center">ID</th>
+                <th align="center" align="center">Nombre</th>
+                <th align="center" align="center">Acciones</th>
               </tr>
             </thead>
             <tbody>
               @foreach ($categorias as $categoria)
               <tr>
-                <td>{{$categoria->id}}</td>
-                <td>{{$categoria->name}}</td>
-                <td>
-                    <button>Editar</button>
+                <td align="center">{{$categoria->id}}</td>
+                <td align="center">{{$categoria->name}}</td>
+                <td align="center">
+                  <form action= "{{ route ('categoria.edit', $categoria->id) }}" method="GET" class="edit-button">
+                    @csrf 
+                    <button type="submit">Editar</button>
+                  </form> 
                     <form method="get" action="{{ route('categoria.delete', $categoria->id) }}" class="delete-form">
                       @csrf
                     <button type="submit" class="delete">Eliminar</button>
