@@ -51,13 +51,15 @@
             @endforeach
           </ul>
         </li>
-        
-        
 
 
         <li><a href="{{route('reservas')}}">
           <i class="fas fa-laptop-code"></i>
           <span class="nav-item">Reservas</span>
+        </a></li>
+        <li><a href="{{route('galeria.index')}}">
+          <i class="fas fa-images"></i>
+          <span class="nav-item">Galeria</span>
         </a></li>
         <li><a href="{{route('usuarios')}}">
           <i class="fas fa-users"></i>

@@ -1000,9 +1000,10 @@ eval("\n\nvar bind = __webpack_require__(/*! ./helpers/bind */ \"./node_modules/
 /*!*****************************!*\
   !*** ./resources/js/app.js ***!
   \*****************************/
-/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__(/*! ./bootstrap */ \"./resources/js/bootstrap.js\");\n\nvar rooms_menu = document.getElementById('rooms-menu');\nconsole.log('error');\nrooms_menu.addEventListener('click', function () {\n  var submenu = document.getElementById('rooms-submenu');\n\n  if (submenu.classList.contains('hidden')) {\n    submenu.classList.remove('hidden');\n  } else {\n    submenu.classList.add('hidden');\n  }\n});//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9yZXNvdXJjZXMvanMvYXBwLmpzLmpzIiwibWFwcGluZ3MiOiJBQUFBQSxtQkFBTyxDQUFDLGdEQUFELENBQVA7O0FBRUEsSUFBTUMsVUFBVSxHQUFDQyxRQUFRLENBQUNDLGNBQVQsQ0FBeUIsWUFBekIsQ0FBakI7QUFDQUMsT0FBTyxDQUFDQyxHQUFSLENBQVksT0FBWjtBQUVBSixVQUFVLENBQUNLLGdCQUFYLENBQTRCLE9BQTVCLEVBQW9DLFlBQUk7RUFDcEMsSUFBSUMsT0FBTyxHQUFDTCxRQUFRLENBQUNDLGNBQVQsQ0FBd0IsZUFBeEIsQ0FBWjs7RUFDQSxJQUFJSSxPQUFPLENBQUNDLFNBQVIsQ0FBa0JDLFFBQWxCLENBQTJCLFFBQTNCLENBQUosRUFBMEM7SUFDdENGLE9BQU8sQ0FBQ0MsU0FBUixDQUFrQkUsTUFBbEIsQ0FBeUIsUUFBekI7RUFDSCxDQUZELE1BR0k7SUFDQUgsT0FBTyxDQUFDQyxTQUFSLENBQWtCRyxHQUFsQixDQUFzQixRQUF0QjtFQUNIO0FBQ0osQ0FSRCIsInNvdXJjZXMiOlsid2VicGFjazovLy8uL3Jlc291cmNlcy9qcy9hcHAuanM/Y2VkNiJdLCJzb3VyY2VzQ29udGVudCI6WyJyZXF1aXJlKCcuL2Jvb3RzdHJhcCcpO1xyXG5cclxuY29uc3Qgcm9vbXNfbWVudT1kb2N1bWVudC5nZXRFbGVtZW50QnlJZCAoJ3Jvb21zLW1lbnUnKTtcclxuY29uc29sZS5sb2coJ2Vycm9yJylcclxuXHJcbnJvb21zX21lbnUuYWRkRXZlbnRMaXN0ZW5lcignY2xpY2snLCgpPT57XHJcbiAgICBsZXQgc3VibWVudT1kb2N1bWVudC5nZXRFbGVtZW50QnlJZCgncm9vbXMtc3VibWVudScpXHJcbiAgICBpZiAoc3VibWVudS5jbGFzc0xpc3QuY29udGFpbnMoJ2hpZGRlbicpKSB7XHJcbiAgICAgICAgc3VibWVudS5jbGFzc0xpc3QucmVtb3ZlKCdoaWRkZW4nKVxyXG4gICAgfVxyXG4gICAgZWxzZXtcclxuICAgICAgICBzdWJtZW51LmNsYXNzTGlzdC5hZGQoJ2hpZGRlbicpXHJcbiAgICB9XHJcbn0pXHJcblxyXG4iXSwibmFtZXMiOlsicmVxdWlyZSIsInJvb21zX21lbnUiLCJkb2N1bWVudCIsImdldEVsZW1lbnRCeUlkIiwiY29uc29sZSIsImxvZyIsImFkZEV2ZW50TGlzdGVuZXIiLCJzdWJtZW51IiwiY2xhc3NMaXN0IiwiY29udGFpbnMiLCJyZW1vdmUiLCJhZGQiXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///./resources/js/app.js\n");
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _bootstrap__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./bootstrap */ \"./resources/js/bootstrap.js\");\n/* harmony import */ var _bootstrap__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_bootstrap__WEBPACK_IMPORTED_MODULE_0__);\nObject(function webpackMissingModule() { var e = new Error(\"Cannot find module 'alpinejs'\"); e.code = 'MODULE_NOT_FOUND'; throw e; }());\n\n\nwindow.Alpine = Object(function webpackMissingModule() { var e = new Error(\"Cannot find module 'alpinejs'\"); e.code = 'MODULE_NOT_FOUND'; throw e; }());\nObject(function webpackMissingModule() { var e = new Error(\"Cannot find module 'alpinejs'\"); e.code = 'MODULE_NOT_FOUND'; throw e; }())();//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9yZXNvdXJjZXMvanMvYXBwLmpzLmpzIiwibWFwcGluZ3MiOiI7Ozs7QUFBQTtBQUVBO0FBRUFDLE1BQU0sQ0FBQ0QsTUFBUCxHQUFnQkEsdUlBQWhCO0FBRUFBLHVJQUFBIiwic291cmNlcyI6WyJ3ZWJwYWNrOi8vLy4vcmVzb3VyY2VzL2pzL2FwcC5qcz9jZWQ2Il0sInNvdXJjZXNDb250ZW50IjpbImltcG9ydCAnLi9ib290c3RyYXAnO1xuXG5pbXBvcnQgQWxwaW5lIGZyb20gJ2FscGluZWpzJztcblxud2luZG93LkFscGluZSA9IEFscGluZTtcblxuQWxwaW5lLnN0YXJ0KCk7XG4iXSwibmFtZXMiOlsiQWxwaW5lIiwid2luZG93Iiwic3RhcnQiXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///./resources/js/app.js\n");
 
 /***/ }),
 
@@ -1083,10 +1084,9 @@ eval("/* module decorator */ module = __webpack_require__.nmd(module);\nvar __WE
 /*!*********************************!*\
   !*** ./resources/sass/app.scss ***!
   \*********************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ (() => {
 
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9yZXNvdXJjZXMvc2Fzcy9hcHAuc2Nzcy5qcyIsIm1hcHBpbmdzIjoiO0FBQUEiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi9yZXNvdXJjZXMvc2Fzcy9hcHAuc2Nzcz9hODBiIl0sInNvdXJjZXNDb250ZW50IjpbIi8vIGV4dHJhY3RlZCBieSBtaW5pLWNzcy1leHRyYWN0LXBsdWdpblxuZXhwb3J0IHt9OyJdLCJuYW1lcyI6W10sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///./resources/sass/app.scss\n");
+throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleError: Module Error (from ./node_modules/postcss-loader/dist/cjs.js):\nLoading PostCSS \"tailwindcss\" plugin failed: Cannot find module 'tailwindcss'\nRequire stack:\n- C:\\xampp\\htdocs\\rancho-alto-hostal\\node_modules\\postcss-loader\\dist\\utils.js\n- C:\\xampp\\htdocs\\rancho-alto-hostal\\node_modules\\postcss-loader\\dist\\index.js\n- C:\\xampp\\htdocs\\rancho-alto-hostal\\node_modules\\postcss-loader\\dist\\cjs.js\n- C:\\xampp\\htdocs\\rancho-alto-hostal\\node_modules\\webpack\\lib\\ProgressPlugin.js\n- C:\\xampp\\htdocs\\rancho-alto-hostal\\node_modules\\webpack\\lib\\index.js\n- C:\\xampp\\htdocs\\rancho-alto-hostal\\node_modules\\webpack-cli\\lib\\webpack-cli.js\n- C:\\xampp\\htdocs\\rancho-alto-hostal\\node_modules\\webpack-cli\\lib\\bootstrap.js\n- C:\\xampp\\htdocs\\rancho-alto-hostal\\node_modules\\webpack-cli\\bin\\cli.js\n- C:\\xampp\\htdocs\\rancho-alto-hostal\\node_modules\\webpack\\bin\\webpack.js\n\n(@C:\\xampp\\htdocs\\rancho-alto-hostal\\resources\\sass\\app.scss)\n    at Object.emitError (C:\\xampp\\htdocs\\rancho-alto-hostal\\node_modules\\webpack\\lib\\NormalModule.js:608:6)\n    at getPostcssOptions (C:\\xampp\\htdocs\\rancho-alto-hostal\\node_modules\\postcss-loader\\dist\\utils.js:225:19)\n    at Object.loader (C:\\xampp\\htdocs\\rancho-alto-hostal\\node_modules\\postcss-loader\\dist\\index.js:65:42)");
 
 /***/ }),
 
@@ -1129,39 +1129,16 @@ eval("// shim for using process in browser\nvar process = module.exports = {};\n
 /******/ 		return module.exports;
 /******/ 	}
 /******/ 	
-/******/ 	// expose the modules object (__webpack_modules__)
-/******/ 	__webpack_require__.m = __webpack_modules__;
-/******/ 	
 /************************************************************************/
-/******/ 	/* webpack/runtime/chunk loaded */
+/******/ 	/* webpack/runtime/compat get default export */
 /******/ 	(() => {
-/******/ 		var deferred = [];
-/******/ 		__webpack_require__.O = (result, chunkIds, fn, priority) => {
-/******/ 			if(chunkIds) {
-/******/ 				priority = priority || 0;
-/******/ 				for(var i = deferred.length; i > 0 && deferred[i - 1][2] > priority; i--) deferred[i] = deferred[i - 1];
-/******/ 				deferred[i] = [chunkIds, fn, priority];
-/******/ 				return;
-/******/ 			}
-/******/ 			var notFulfilled = Infinity;
-/******/ 			for (var i = 0; i < deferred.length; i++) {
-/******/ 				var [chunkIds, fn, priority] = deferred[i];
-/******/ 				var fulfilled = true;
-/******/ 				for (var j = 0; j < chunkIds.length; j++) {
-/******/ 					if ((priority & 1 === 0 || notFulfilled >= priority) && Object.keys(__webpack_require__.O).every((key) => (__webpack_require__.O[key](chunkIds[j])))) {
-/******/ 						chunkIds.splice(j--, 1);
-/******/ 					} else {
-/******/ 						fulfilled = false;
-/******/ 						if(priority < notFulfilled) notFulfilled = priority;
-/******/ 					}
-/******/ 				}
-/******/ 				if(fulfilled) {
-/******/ 					deferred.splice(i--, 1)
-/******/ 					var r = fn();
-/******/ 					if (r !== undefined) result = r;
-/******/ 				}
-/******/ 			}
-/******/ 			return result;
+/******/ 		// getDefaultExport function for compatibility with non-harmony modules
+/******/ 		__webpack_require__.n = (module) => {
+/******/ 			var getter = module && module.__esModule ?
+/******/ 				() => (module['default']) :
+/******/ 				() => (module);
+/******/ 			__webpack_require__.d(getter, { a: getter });
+/******/ 			return getter;
 /******/ 		};
 /******/ 	})();
 /******/ 	
@@ -1214,68 +1191,13 @@ eval("// shim for using process in browser\nvar process = module.exports = {};\n
 /******/ 		};
 /******/ 	})();
 /******/ 	
-/******/ 	/* webpack/runtime/jsonp chunk loading */
-/******/ 	(() => {
-/******/ 		// no baseURI
-/******/ 		
-/******/ 		// object to store loaded and loading chunks
-/******/ 		// undefined = chunk not loaded, null = chunk preloaded/prefetched
-/******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
-/******/ 		var installedChunks = {
-/******/ 			"/js/app": 0,
-/******/ 			"css/app": 0
-/******/ 		};
-/******/ 		
-/******/ 		// no chunk on demand loading
-/******/ 		
-/******/ 		// no prefetching
-/******/ 		
-/******/ 		// no preloaded
-/******/ 		
-/******/ 		// no HMR
-/******/ 		
-/******/ 		// no HMR manifest
-/******/ 		
-/******/ 		__webpack_require__.O.j = (chunkId) => (installedChunks[chunkId] === 0);
-/******/ 		
-/******/ 		// install a JSONP callback for chunk loading
-/******/ 		var webpackJsonpCallback = (parentChunkLoadingFunction, data) => {
-/******/ 			var [chunkIds, moreModules, runtime] = data;
-/******/ 			// add "moreModules" to the modules object,
-/******/ 			// then flag all "chunkIds" as loaded and fire callback
-/******/ 			var moduleId, chunkId, i = 0;
-/******/ 			if(chunkIds.some((id) => (installedChunks[id] !== 0))) {
-/******/ 				for(moduleId in moreModules) {
-/******/ 					if(__webpack_require__.o(moreModules, moduleId)) {
-/******/ 						__webpack_require__.m[moduleId] = moreModules[moduleId];
-/******/ 					}
-/******/ 				}
-/******/ 				if(runtime) var result = runtime(__webpack_require__);
-/******/ 			}
-/******/ 			if(parentChunkLoadingFunction) parentChunkLoadingFunction(data);
-/******/ 			for(;i < chunkIds.length; i++) {
-/******/ 				chunkId = chunkIds[i];
-/******/ 				if(__webpack_require__.o(installedChunks, chunkId) && installedChunks[chunkId]) {
-/******/ 					installedChunks[chunkId][0]();
-/******/ 				}
-/******/ 				installedChunks[chunkId] = 0;
-/******/ 			}
-/******/ 			return __webpack_require__.O(result);
-/******/ 		}
-/******/ 		
-/******/ 		var chunkLoadingGlobal = self["webpackChunk"] = self["webpackChunk"] || [];
-/******/ 		chunkLoadingGlobal.forEach(webpackJsonpCallback.bind(null, 0));
-/******/ 		chunkLoadingGlobal.push = webpackJsonpCallback.bind(null, chunkLoadingGlobal.push.bind(chunkLoadingGlobal));
-/******/ 	})();
-/******/ 	
 /************************************************************************/
 /******/ 	
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
-/******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	__webpack_require__.O(undefined, ["css/app"], () => (__webpack_require__("./resources/js/app.js")))
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/app"], () => (__webpack_require__("./resources/sass/app.scss")))
-/******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
+/******/ 	// This entry module can't be inlined because the eval-source-map devtool is used.
+/******/ 	__webpack_require__("./resources/js/app.js");
+/******/ 	var __webpack_exports__ = __webpack_require__("./resources/sass/app.scss");
 /******/ 	
 /******/ })()
 ;

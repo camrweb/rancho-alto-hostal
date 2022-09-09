@@ -14,6 +14,7 @@
                 <th>Email</th>
                 <th>Rol</th>
                 <th>Fecha</th>
+                <th>verificación</th>
                 <th>Acciones</th>
               </tr>
             </thead>
@@ -26,6 +27,7 @@
                 <td>{{$user->email}}</td>
                 <td>{{$user->role}}</td>
                 <td>{{$user->created_at}}</td>
+                <td>{{$user->email_verified_at }}</td>
                 <td>
                     <button>Editar</button>
                     <form method="get" action="{{ route('usuarios.delete', $user->id) }}" class="delete-form">

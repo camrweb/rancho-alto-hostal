@@ -1,65 +1,31 @@
-@extends('layouts.app')
-@section('title', 'Galeria')
-@section('content')
+   @extends('layouts.app')
+   @section('title', 'Galeria')
+   @section('content')
 
-<div class="back_re">
+      <div class="back_re">
          <div class="container">
-            <div class="row">
-               <div class="col-md-12">
-                  <div class="title">
-                    <h2>Galería</h2>
+               <div class="row">
+                  <div class="col-md-12">
+                     <div class="title">
+                           <h2>Galería</h2>
+                     </div>
                   </div>
                </div>
-            </div>
          </div>
       </div>
       <!-- gallery -->
-      <div  class="gallery">
+      <div class="gallery">
          <div class="container">
-           
-            <div class="row">
-               <div class="col-md-3 col-sm-6">
-                  <div class="gallery_img">
-                     <figure><img src="images/gallery1.jpg" alt="#"/></figure>
+               <div class="row">
+                  @foreach ($galerias as $galeria)
+                  <div class="col-md-3 col-sm-6">
+                     <div class="gallery_img">
+                           <figure><img src="{{ asset('storage' . '/' . $galeria->image) }}" alt="#" /></figure>
+                     </div>
                   </div>
+            @endforeach
                </div>
-               <div class="col-md-3 col-sm-6">
-                  <div class="gallery_img">
-                     <figure><img src="images/gallery2.jpg" alt="#"/></figure>
-                  </div>
-               </div>
-               <div class="col-md-3 col-sm-6">
-                  <div class="gallery_img">
-                     <figure><img src="images/gallery3.jpg" alt="#"/></figure>
-                  </div>
-               </div>
-               <div class="col-md-3 col-sm-6">
-                  <div class="gallery_img">
-                     <figure><img src="images/gallery4.jpg" alt="#"/></figure>
-                  </div>
-               </div>
-               <div class="col-md-3 col-sm-6">
-                  <div class="gallery_img">
-                     <figure><img src="images/gallery5.jpg" alt="#"/></figure>
-                  </div>
-               </div>
-               <div class="col-md-3 col-sm-6">
-                  <div class="gallery_img">
-                     <figure><img src="images/gallery6.jpg" alt="#"/></figure>
-                  </div>
-               </div>
-               <div class="col-md-3 col-sm-6">
-                  <div class="gallery_img">
-                     <figure><img src="images/gallery7.jpg" alt="#"/></figure>
-                  </div>
-               </div>
-               <div class="col-md-3 col-sm-6">
-                  <div class="gallery_img">
-                     <figure><img src="images/gallery8.jpg" alt="#"/></figure>
-                  </div>
-               </div>
-            </div>
          </div>
       </div>
 
-@endsection
+   @endsection

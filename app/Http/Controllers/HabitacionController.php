@@ -170,7 +170,9 @@ class HabitacionController extends Controller
     public function destroy($id)
     {
         $habitacion=Habitacion::find($id);
-        $habitacion->delete();
+        if(Storage::delete('public/'.$habitacion->foto)){
+            $habitacion->delete($id);
+        }
         $habitaciones=Habitacion::all();
         return redirect()->back();
     }
