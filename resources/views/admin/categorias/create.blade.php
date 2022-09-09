@@ -9,7 +9,7 @@
     </h1>
     <hr class="hrcategorias">
 
-
+hola
     @if (count($errors) > 0)
             <div>
                 <ul>
