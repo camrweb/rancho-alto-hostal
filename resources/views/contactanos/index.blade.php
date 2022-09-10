@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Contactanos')
+@section('title', '- Contactanos')
 @section('content')
 
 <div class="back_re">
@@ -7,7 +7,7 @@
             <div class="row">
                <div class="col-md-12">
                   <div class="title">
-                      <h2>Contáctanos</h2>
+                     <h2>Contáctanos</h2>
                   </div>
                </div>
             </div>

@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Contactanos')
+@section('title', '- Login')
 @section('content')
     <link rel="stylesheet" href="{{ asset('css/form-login-register.css') }}">
 

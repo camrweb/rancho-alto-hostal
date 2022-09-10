@@ -1,0 +1,73 @@
+
+.row{
+    display: flex;
+    justify-content: center;
+}
+
+.tittle_dashboard{
+    border-radius: 10px;
+    color: white;
+    text-align: center;
+    width: 250px;
+    background-color: #4AD489;
+    position: relative;
+    left: 520px;
+    top: 10px;
+}
+
+
+.contenedor{
+    margin: 40px 50px 40px 20px;
+    font-family: 'Righteous', cursive;
+    position: relative;
+    top: 20px;
+    left: 30px;
+    width: 350px;
+    text-align: center;
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+}
+
+
+hr{
+    border: 1px solid #4AD489;
+    border-radius: 20px;
+}
+
+.header_dashboard{
+    padding: 20px;
+    font-size: .7rem;
+}
+
+.inside_dashboard{
+    padding: 10px;
+    text-align: center;
+}
+
+.count{
+    font-size: 2rem;
+}
+h2{
+    font-family: 'Roboto Mono', monospace;
+}
+
+h2 .fa-images:before{
+    color: #39a268;
+}
+
+h2 .fa-align-center:before{
+    color: #39a268;
+}
+
+h2  .fa-person-booth:before{
+    color: #39a268;
+}
+
+h2 .fa-laptop-code:before{
+    color: #39a268;
+}
+
+h2 .fa-users:before{
+    color: #39a268;
+}

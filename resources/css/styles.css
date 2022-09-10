@@ -79,6 +79,8 @@ a:hover i{
   bottom: 0;
 }
 
+
+
 .container{
   display: flex;
 }
@@ -237,6 +239,15 @@ button .delete:hover{
 .rooms-submenu{
   padding-left: 20px;
   list-style: none;
+}
+
+
+.form-admin {
+  width: 550px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-49%, -49%);
 }
 
 

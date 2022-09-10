@@ -33,7 +33,7 @@
                <div class="row">
                   <div class="col-md-5">
                      <div class="col-md-12">
-                       <button class="book_btn" data-toggle="modal" data-target="#exampleModal">Reservar ahora</button>
+                        <button class="book_btn" data-toggle="modal" data-target="#exampleModal">Reservar ahora</button>
                      </div>
                   </div>
                </div>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Reserva;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class ReservaController extends Controller
 {
@@ -35,7 +36,12 @@ class ReservaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Log::Debug($request->all());
+        $data = $request->all(); 
+        $reserva = Reserva::where('habitacion_id',$data['_habitacion'])
+        ->where('check_in','>=',$data->date_1)
+        ->where('check_out','<',$data->date_2)
+        ->where('check_in','<',$data->date_1);
     }
 
     /**

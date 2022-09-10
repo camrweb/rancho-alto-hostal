@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>Rancho Alto - @yield('title')</title>
+    <title>Rancho Alto  @yield('title')</title>
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
     <!-- style css -->
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
@@ -443,8 +443,7 @@
                             <div class="full">
                                 <div class="center-desk">
                                     <div class="logo">
-                                        <a href=""><img src="images/rancho_alto_logo_1.png"
-                                                alt="#" /></a>
+                                        <a href=""><img src="images/rancho_alto_logo_1.png" alt="#" /></a>
                                     </div>
                                 </div>
                             </div>
@@ -462,7 +461,7 @@
                                             <a class="nav-link" href="{{ route('index') }}">HOGAR</a>
                                         </li>
                                         <li class="nav-item {{ request()->is('acerca-de') ? 'active' : '' }}">
-                                            <a class="nav-link" href="{{ route('acerca-de') }}">ACERCA DE</a>
+                                            <a class="nav-link" href="{{ route('acerca-de') }}">ACERCA</a>
                                         </li>
                                         <li class="nav-item {{ request()->is('habitaciones') ? 'active' : '' }}">
                                             <a class="nav-link" href="{{ route('habitaciones') }}">HABITACIONES</a>
@@ -483,142 +482,76 @@
                                                 aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                 <div class="modal-dialog" role="document">
                                                     <div class="modal-content">
-                                                        <div class="modal-header">
-                                                            <h5 class="modal-title" id="exampleModalLabel">RESERVA
-                                                                AHORA!</h5>
-                                                            <button type="button" class="close" data-dismiss="modal"
-                                                                aria-label="Close">
-                                                                <span aria-hidden="true">&times;</span>
-                                                            </button>
-                                                        </div>
-                                                        <div class="modal-body">
-                                                            <!-- Nombres
-                                                            <div class="form-group">
-                                                                <label for="formGroupExampleInput">Identificacion</label>
-                                                                    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Nombre">
-                                                                </div>
-                                                                Apellidos
-                                                                <div class="row">
-                                                                    <div class="col">
-                                                                    <input type="text" class="form-control" placeholder="Primer apellido">
-                                                                    </div>
-                                                                    <div class="col">
-                                                                    <input type="text" class="form-control" placeholder="Segundo apellido">
-                                                                    </div>
-                                                                </div>
-                                                                Fecha de nacimiento
-                                                                <div class="form-group" style="padding-top: 15px">
-                                                                    <label for="formGroupExampleInput">FECHA DE NACIMIENTO</label>
-                                                                    <input type="date" class="form-control" id="formGroupExampleInput">
-                                                                </div>
-                                                                Tipo de identificacion
-                                                                    <div class="form-group">
-                                                                    <label for="exampleFormControlSelect1">TIPO DE IDENTIFICACION</label>
-                                                                    <select class="form-control" id="exampleFormControlSelect1">
-                                                                    <option>CEDULA DE CIUDADANIA</option>
-                                                                    <option>CEDULA DE EXTRANJERIA</option>
-                                                                    <option>NIT</option>
-                                                                    </select>
-                                                                    </div>
-                                                                    <div class="form-group">
-                                                                        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="NUMERO DE DOCUMENTO">
-                                                                    </div>
-                                                                Genero
-                                                                <div class="form-group">
-                                                                    <label for="exampleFormControlSelect1">GENERO</label>
-                                                                    <select class="form-control" id="exampleFormControlSelect1">
-                                                                    <option>FEMENINO</option>
-                                                                    <option>MASCULINO</option>
-                                                                    </select>
-                                                                </div>
-                                                                Numero de telefono
-                                                                <div class="form-group">
-                                                                    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="TELEFONO">
-                                                                </div>
-                                                                Correo
-                                                                <div class="form-group">
-                                                                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="CORREO ELECTRONICO">
-                                                                    <small id="emailHelp" class="form-text text-muted">Nunca compartiremos su correo electrónico con nadie más.</small>
-                                                                </div>
-                                                                Pais
-                                                                <div class="form-group">
-                                                                    <label for="exampleFormControlSelect1">PAIS</label>
-                                                                    <select class="form-control" id="exampleFormControlSelect1">
-                                                                    <option>PAIS</option>
-                                                                    </select>
-                                                                </div>
-                                                                Ciudad
-                                                                <div class="form-group">
-                                                                    <label for="exampleFormControlSelect1">CIUDAD</label>
-                                                                    <select class="form-control" id="exampleFormControlSelect1">
-                                                                    <option>CIUDAD</option>
-                                                                    </select>
-                                                                </div>
-                                                                Codigo postal
-                                                                <div class="form-group">
-                                                                    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="CODIGO POSTAL">
-                                                                </div>
-                                                                Direccion
-                                                                <div class="form-group">
-                                                                    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="DIRECCION">
-                                                                </div> -->
-                                                            <!-- Categoria -->
-                                                            <div class="form-group">
-                                                                <label
-                                                                    for="exampleFormControlSelect1">CATEGORIA</label>
-                                                                <select class="form-control" id="_categorias">
-                                                                    <option id="select_default">SELECCIONA</option>
-                                                                    @foreach ($categorias as $categoria)
-                                                                        <option value="{{ $categoria->id }}">
-                                                                            {{ $categoria->name }}</option>
-                                                                    @endforeach
-                                                                </select>
+                                                        <form action="{{ route('reserva.store') }}" method="POST">
+                                                            @csrf
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title" id="exampleModalLabel">RESERVA
+                                                                    AHORA!</h5>
+                                                                <button type="button" class="close"
+                                                                    data-dismiss="modal" aria-label="Close">
+                                                                    <span aria-hidden="true">&times;</span>
+                                                                </button>
                                                             </div>
-                                                            <!-- Habitaciones -->
-                                                            <div class="form-group">
-                                                                <label
-                                                                    for="exampleFormControlSelect1">HABITACIONES</label>
-                                                                <select class="form-control" id="_habitaciones">
+                                                            <div class="modal-body">
+                                                                <!-- Categoria -->
+                                                                <div class="form-group">
+                                                                    <label
+                                                                        for="exampleFormControlSelect1">CATEGORIA</label>
+                                                                    <select class="form-control" name="_categorias" id="_categorias">
+                                                                        <option id="select_default">SELECCIONA</option>
+                                                                        @foreach ($categorias as $categoria)
+                                                                            <option value="{{ $categoria->id }}">
+                                                                                {{ $categoria->name }}</option>
+                                                                        @endforeach
+                                                                    </select>
+                                                                </div>
+                                                                <!-- Habitaciones -->
+                                                                <div class="form-group">
+                                                                    <label
+                                                                        for="exampleFormControlSelect1">HABITACIONES</label>
+                                                                    <select class="form-control" name="_habitaciones" id="_habitaciones">
 
-                                                                    <!-- Unused Code -->
-                                                                    <!-- {{-- @foreach ($habitaciones as $habitacion)
+                                                                        <!-- Unused Code -->
+                                                                        <!-- {{-- @foreach ($habitaciones as $habitacion)
                                                                     <option value="{{ $habitacion->id }}">{{ $habitacion->name }}</option>
                                                                     @endforeach --}} -->
 
-                                                                    <!-- Last Script Position -->
+                                                                        <!-- Last Script Position -->
 
-                                                                </select>
+                                                                    </select>
+                                                                </div>
+                                                                {{-- PersonMaxima --}}
+                                                                <!--Fecha-->
+                                                                <div class="row">
+                                                                    <div class="col">
+                                                                        <label for="formGroupExampleInput">Check
+                                                                            in</label>
+                                                                        <input type="date" name="date_1" class="form-control"
+                                                                            id="date-1">
+                                                                    </div>
+                                                                    <div class="col">
+                                                                        <label for="formGroupExampleInput">Check
+                                                                            out</label>
+                                                                        <input type="date" name="date_2"  class="form-control"
+                                                                            id="date-2">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row mt-1">
+                                                                    <div class="col">
+                                                                        <button type="button" id="calcular"
+                                                                            class="btn btn-outline-success">Calcular</button>
+                                                                    </div>
+                                                                    <div class="col" id="result">
+                                                                    </div>
+                                                                </div>
                                                             </div>
-                                                            {{-- PersonMaxima --}}
-                                                            <!--Fecha-->
-                                                            <div class="row">
-                                                                <div class="col">
-                                                                    <label for="formGroupExampleInput">Check in</label>
-                                                                    <input type="date" class="form-control"
-                                                                        id="date-1">
-                                                                </div>
-                                                                <div class="col">
-                                                                    <label for="formGroupExampleInput">Check
-                                                                        out</label>
-                                                                    <input type="date" class="form-control"
-                                                                        id="date-2">
-                                                                </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-secondary"
+                                                                    data-dismiss="modal">Cerrar</button>
+                                                                <button type="submit"
+                                                                    class="btn btn-primary">Reservar</button>
                                                             </div>
-                                                            <div class="row mt-1">
-                                                                <div class="col">
-                                                                    <button type="button" id="calcular"
-                                                                        class="btn btn-outline-success">Calcular</button>
-                                                                </div>
-                                                                <div class="col" id="result">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="modal-footer">
-                                                            <button type="button" class="btn btn-secondary"
-                                                                data-dismiss="modal">Cerrar</button>
-                                                            <button type="button"
-                                                                class="btn btn-primary">Reservar</button>
-                                                        </div>
+                                                        </form>
                                                     </div>
                                                 </div>
                                             </div>
@@ -660,7 +593,7 @@
                                                     aria-labelledby="navbarDropdown">
                                                     @if (Auth::user()->role == 1)
                                                         <a class="dropdown-item"
-                                                            href="{{ route('admin') }}">{{ __('DASHBOARD') }}</a>
+                                                            href="{{ route('admin.dashboard') }}">{{ __('DASHBOARD') }}</a>
                                                     @endif
                                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                                         onclick="event.preventDefault();
@@ -798,7 +731,7 @@
                 } = await fetch(`${url}habitacion/${nombreHabitacion}`).then(res => res.json());
                 if (success) {
                     if (document.getElementById("personasSelect")) document.getElementById("personasSelect")
-                    .remove()
+                        .remove()
                     if (document.getElementById("descriptionRoom")) document.getElementById("descriptionRoom")
                         .remove()
                     let selectPersonas = document.createElement("select")

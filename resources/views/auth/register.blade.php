@@ -1,12 +1,12 @@
 @extends('layouts.app')
-@section('title', 'Contactanos')
+@section('title', '- Register')
 @section('content')
 <link rel="stylesheet" href="{{ asset('css/form-login-register.css') }}">
 
         <form method="POST" class="login-form" action="{{ route('register') }}">
             @csrf
-            <h2 class="form_tittle">Inicia sesion</h2>
-            <p class="form_paragraph">¿Aún no tienes cuenta? <a href="{{ route('register') }}" 	class="form_link">Entra aqui</a></p>
+            <h2 class="form_tittle">Registro</h2>
+            <p class="form_paragraph">¿Ya tienes una cuenta? <a href="{{ route('login') }}" 	class="form_link">Entra aqui</a></p>
             <div class="form_container">
             <!-- Name -->
             <div class="form_group">

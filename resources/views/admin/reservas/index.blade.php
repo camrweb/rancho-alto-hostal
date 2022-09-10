@@ -1,13 +1,10 @@
 @extends('layouts.admin')
 @section('admin')
 
-<h1>
-  RESERVAS
-</h1>
 
 <section class="attendance">
         <div class="attendance-list">
-          <h1>Attendance List</h1>
+          <h1>Reservas</h1>
           <table class="table">
             <thead>
               <tr>

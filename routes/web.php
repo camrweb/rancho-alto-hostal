@@ -61,6 +61,7 @@ Route::get('/acerca-de', function () {
 })->name('acerca-de');
 
 
+Route::post('/guardar-reserva', [App\Http\Controllers\ReservaController::class, 'store'])->name('reserva.store');
 
 
 
@@ -69,9 +70,6 @@ Route::get('/acerca-de', function () {
 //ADMIN
 Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function () {
 
-    Route::get('/', function () {
-        return view('admin.index');
-    })->name('admin');
 
     //Reservas
     Route::get('/reservas', function () {
@@ -105,7 +103,13 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function () {
 
     //Usuarios
     Route::get('/usuarios', [App\Http\Controllers\UserController::class, 'index'])->name('usuarios');
+    Route::get('/usuarios/{id}/edit', [App\Http\Controllers\UserController::class, 'edit'])->name('usuarios.edit');
     Route::get('/usuarios/{id}/delete', [App\Http\Controllers\UserController::class, 'destroy'])->name('usuarios.delete');
+    Route::put('/usuarios/{id}/update', [App\Http\Controllers\UserController::class, 'update'])->name('usuarios.update');
+    Route::get('/usuarios/pdf', [App\Http\Controllers\UserController::class, 'pdf'])->name('usuarios.pdf');
+
+    Route::get('/admin', [App\Http\Controllers\DashBoardController::class, 'getDashboard'])->name('admin.dashboard');
+
 
     //TODAS LAS RUTAS
     Route::resource('categoria', CategoriaController::class);

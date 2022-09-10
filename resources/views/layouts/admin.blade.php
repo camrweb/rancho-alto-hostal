@@ -5,7 +5,9 @@
   <title>Dashboard | RANCHO ALTO</title>
   <link rel="stylesheet" href="{{ asset('css/styles.css') }}" />
   <!-- Font Awesome Cdn Link -->
+  
   <!-- fevicon -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&display=swap" rel="stylesheet">
   <link rel="icon" href="{{ asset('images/rancho_alto_logo_2.png') }}" type="image/gif" />
   {{-- Google Material Icons --}}
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Material+Icons">
@@ -29,7 +31,7 @@
 <div class="container">
     <nav>
       <ul>
-        <li><a href="{{route('admin')}}" class="logo">
+        <li><a href="{{route('admin.dashboard')}}" class="logo">
           <img src="{{ asset('images/rancho_alto_logo_1.png') }}">
           <span class="nav-item">{{ Auth::user()->name }}</span>
         </a></li>
@@ -65,9 +67,9 @@
           <i class="fas fa-users"></i>
           <span class="nav-item">Usuarios</span>
         </a></li>
-        <li><a href="#">
-          <i class="fas fa-cog"></i>
-          <span class="nav-item">Setting</span>
+        <li><a href="{{ route('index') }}" class="home">
+          <i class="fas fa-home"></i>
+          <span class="nav-item">Pagina</span>
         </a></li>
         <li><a href="{{ route('logout') }}" class="logout" onclick="event.preventDefault();
                                           document.getElementById('logout-form').submit();">

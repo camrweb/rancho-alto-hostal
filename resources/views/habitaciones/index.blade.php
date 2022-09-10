@@ -1,5 +1,5 @@
    @extends('layouts.app')
-   @section('title', 'Habitaciones')
+   @section('title', '- Habitaciones')
    @section('content')
 
 
@@ -20,7 +20,7 @@
                <div class="row">
                   <div class="col-md-12">
                      <div class="titlepage">
-                           <p class="margin_0">Lorem Ipsum available, but the majority have suffered </p>
+                           <p class="margin_0">Disfruta de las hermosas vistas de la naturaleza.</p>
                      </div>
                   </div>
                </div>
@@ -35,7 +35,7 @@
                                  <h3 class="card-title">{{ $habitacion->name }}</h3>
                                  <p class="card-subtitle text-muted"><em>{{ $habitacion->description }}</em></p>
                                  <hr>
-                                 <p>{{ $habitacion->price }}</p>
+                                 <p> $ {{ $habitacion->price }}</p>
                               </div>
                            </div>
                      </div>

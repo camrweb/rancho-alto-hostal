@@ -1,5 +1,5 @@
    @extends('layouts.app')
-   @section('title', 'Galeria')
+   @section('title', '- Galeria')
    @section('content')
 
       <div class="back_re">
