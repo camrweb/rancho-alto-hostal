@@ -27,7 +27,7 @@
                         <tr>
                             <td align="center">{{ $habitacion->id }}</td>
                             <td align="center">{{ $habitacion->name }}</td>
-                            <td align="center">{{ $habitacion->description }}</td>
+                            <td align="center" id="description">{{ $habitacion->description }}</td>
                             <td align="center">{{ $habitacion['person-max'] }}</td>
                             <td align="center">{{ $habitacion->price }}</td>
                         </tr>

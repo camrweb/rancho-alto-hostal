@@ -3,18 +3,18 @@
 
 
 <section class="attendance">
-  <button class="button-crear-index">
-    <a href="{{ route('create')}}">
-        CREAR
-    </a>
-  </button>
-  <button class="button-pdf-index">
-    <a href="{{ route('categorias.pdf') }}" target="_blank">
-        PDF
-    </a>
-  </button>
         <div class="attendance-list">
-          <h1>CATEGORIAS</h1>
+          <h1 class="tittle-table">CATEGORIAS</h1>
+          <button class="button-crear-index">
+            <a href="{{ route('create')}}">
+                CREAR
+            </a>
+          </button>
+          <button class="button-pdf-index">
+            <a href="{{ route('categorias.pdf') }}" target="_blank">
+                PDF
+            </a>
+          </button>
           <table class="table">
             <thead>
               <tr>

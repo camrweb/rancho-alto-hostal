@@ -5,19 +5,19 @@
 
 
 <section class="attendance">
-  <button class="button-crear-index">
-    <a href="/admin/habitaciones/{{$categoria}}/create">
-        CREAR
-    </a>
-  </button>
-  <button class="button-pdf-index">
-    <a href="/admin/habitaciones/{{ $categoria }}/pdf" target="_blank">
-        PDF
-    </a>
-  </button>
         <div class="attendance-list">
-          <h1>{{ $categoria }}</h1>
-          <table class="table">
+          <h1 class="tittle-table">{{ $categoria }}</h1>
+          <button class="button-crear-index">
+            <a href="/admin/habitaciones/{{$categoria}}/create">
+                CREAR
+            </a>
+          </button>
+          <button class="button-pdf-index">
+            <a href="/admin/habitaciones/{{ $categoria }}/pdf" target="_blank">
+                PDF
+            </a>
+          </button>
+          <table class="table" >
             <thead>
               <tr>
                 <th align="center">ID</th>
@@ -37,20 +37,21 @@
                   <td align="center"><img src="{{ asset('storage'.'/'.$habitacion->foto) }}" width="200" alt=""></td>
 
                   <td align="center">{{ $habitacion->name }}</td>
-                  <td align="center">{{ $habitacion->description }}</td>
+                  <td align="center" id="description">{{ $habitacion->description }}</td>
                   <td align="center">{{ $habitacion['person-max'] }}</td>
                   <td align="center">{{ $habitacion->price }}</td>
                   <td align="center">
-                    <form action= "/admin/habitaciones/{{ $habitacion->id }}/edit" method="GET" class="edit-button">
+                    <div class="inline-button">
+                    <form action= "/admin/habitaciones/{{ $habitacion->id }}/edit" method="GET" class="acciones-button">
                       @csrf 
                       <button type="submit">Editar</button>
-                    </form> 
-                    |
-                    <form method="post" action="{{ route('habitacion.delete', $habitacion->id) }}" class="delete-form" >
+                    </form>
+                    <form method="post" action="{{ route('habitacion.delete', $habitacion->id) }}" class="acciones-button" >
                       @csrf
                       @method('DELETE')
                       <button type="submit" class="delete">Eliminar</button>
                     </form>
+                    </div>
                   </td>
                 </tr>
               @endforeach

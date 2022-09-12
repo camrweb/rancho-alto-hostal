@@ -38,10 +38,10 @@ class ReservaController extends Controller
     {
         Log::Debug($request->all());
         $data = $request->all(); 
-        $reserva = Reserva::where('habitacion_id',$data['_habitacion'])
-        ->where('check_in','>=',$data->date_1)
-        ->where('check_out','<',$data->date_2)
-        ->where('check_in','<',$data->date_1);
+        $reserva = Reserva::where('habitacion_id',$data['_habitaciones'])
+        ->where('check_in','>=',$data['date_1'])
+        ->where('check_out','<',$data['date_2'])
+        ->where('check_in','<',$data['date_1']);
     }
 
     /**

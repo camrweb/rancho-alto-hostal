@@ -141,7 +141,7 @@ a:hover i{
   text-transform: capitalize;
 }
 .attendance-list{
-  width: 1200px;
+  width: 1350px;
   padding: 10px;
   margin-left: 20px;
   background: #fff;
@@ -152,7 +152,6 @@ a:hover i{
   border-collapse: collapse;
   margin: 25px 0;
   font-size: 15px;
-  min-width: 100%;
   overflow: hidden;
   border-radius: 5px 5px 0 0;
 }
@@ -162,10 +161,19 @@ table thead tr{
   text-align: left;
   font-weight: bold;
 }
-.table th,
+.table th{
+  padding: 12px 15px;
+
+}
 .table td{
   padding: 12px 15px;
 }
+
+#description {
+  word-break: break-all;
+
+}
+
 .table tbody tr{
   border-bottom: 1px solid #ddd;
 }
@@ -183,6 +191,7 @@ table thead tr{
 
 
 .table button{
+  display: inline-block;
   padding: 6px 20px;
   border-radius: 10px;
   cursor: pointer;
@@ -209,9 +218,6 @@ button.delete:hover{
   transition: 0.5rem;
 }
 
-.edit-button{
-  display: inline-block;
-}
 
 a.create{
   position: absolute;
@@ -264,9 +270,6 @@ button input.create:hover{
   margin-top: 50px;
 }
 
-.delete-form{
-  display: inline-block;
-}
 
 button{
   background-color: rgba(251, 251, 251, 0);
@@ -276,8 +279,18 @@ a{
   background-color: #ffffff;
 }
 
+
+.inline-button{
+  display: inline-flex;
+}
+
+.acciones-button{
+  margin: 10px;
+}
+
 .button-pdf-index a{
-  left: 1000px;
+  top: 10px;
+  left: 1100px;
   width: 100px;
   border: 1px solid #da4a4a;
   border-radius: 10px;
@@ -290,8 +303,13 @@ a{
   color: #fff;
 }
 
+.tittle-table{
+  font-size: 3rem;
+  text-align: center;
+}
+
 .button-crear-index a{
-  left: 40px;
+  top: 10px;
   width: 100px;
   border: 1px solid #4ada8a;
   border-radius: 10px;

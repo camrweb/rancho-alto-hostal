@@ -29,10 +29,10 @@ class HabitacionController extends Controller
     public function pdf($name)
     {
         $categoria = Categoria::where('name', $name)->first();
-        $habitaciones = Habitacion::paginate();
+        $habitaciones = Habitacion::where('categoria_id', $categoria->id)->get();
         $pdf = PDF::loadView('admin.habitaciones.pdf', ['categoria'=>$categoria],['habitaciones'=>$habitaciones]);
         PDF::setOption(['dpi' =>60]);
-        // return $pdf->stream();
+        return $pdf->stream();
         return $pdf->download('datos.pdf');
         // $pdf->loadHTML('<h1>Test</h1>');
         // return view('admin.habitaciones.pdf')->with('categoria', $categoria)->with('habitaciones', $habitaciones);

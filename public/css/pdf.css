@@ -1,5 +1,4 @@
 .attendance-list{
-    width: 1200px;
     padding: 10px;
     margin-left: 20px;
     background: #fff;
@@ -7,13 +6,15 @@
     box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
 }
 
+#description {
+    word-break: break-all !important;
+}
+
 .table{
     font-family: "Poppins", sans-serif;
     border-collapse: collapse;
     margin: 25px 0;
     font-size: 15px;
-    min-width: 50%;
-    max-width: 100%;
     overflow: hidden;
     border-radius: 5px 5px 0 0;
 }
@@ -23,7 +24,10 @@ background: #34AF6D;
 text-align: left;
 font-weight: bold;
 }
-.table th,
+.table th{
+    
+padding: 12px 15px;
+}
 .table td{
 padding: 12px 15px;
 }
@@ -44,3 +48,4 @@ border-bottom: 2px solid #4AD489;
 h1{
     font-family: 'Fjalla One', sans-serif;
 }
+
