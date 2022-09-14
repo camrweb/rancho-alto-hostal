@@ -33,7 +33,7 @@
                               </div>
                               <div class="bed_room">
                                  <h3 class="card-title">{{ $habitacion->name }}</h3>
-                                 <p class="card-subtitle text-muted"><em>{{ $habitacion->description }}</em></p>
+                                 <p class="card-subtitle text-muted" style="word-break: break-all"><em>{{ $habitacion->description }}</em></p>
                                  <hr>
                                  <p> $ {{ $habitacion->price }}</p>
                               </div>

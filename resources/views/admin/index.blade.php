@@ -24,7 +24,7 @@
             <hr>
             <div class="inside_dashboard">
                 <div class="count">
-                    <h3><b>0</b></h3>
+                    <h3><b>{{ $reservas }}</b></h3>
                 </div>
             </div>
         </div>

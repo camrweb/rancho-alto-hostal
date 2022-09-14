@@ -61,8 +61,17 @@ Route::get('/acerca-de', function () {
 })->name('acerca-de');
 
 
-Route::post('/guardar-reserva', [App\Http\Controllers\ReservaController::class, 'store'])->name('reserva.store');
 
+//RESERVAR
+Route::post('/guardar-reserva', [App\Http\Controllers\ReservationController::class, 'store'])->name('reserva.store');
+
+Route::middleware(['auth'])->group(function () {
+
+    Route::get('/perfil', [App\Http\Controllers\UserController::class, 'userdetails'])->name('perfil');
+    Route::put('/perfil/update', [App\Http\Controllers\UserController::class, 'userdetailsupdate'])->name('perfil.update');
+    Route::put('/perfil/update-password', [App\Http\Controllers\UserController::class, 'userpasswordupdate'])->name('perfil.update.password');
+
+});
 
 
 
@@ -71,10 +80,11 @@ Route::post('/guardar-reserva', [App\Http\Controllers\ReservaController::class, 
 Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function () {
 
 
+
     //Reservas
-    Route::get('/reservas', function () {
-        return view('admin.reservas.index');
-    })->name('reservas');
+    Route::get('/reservas', [App\Http\Controllers\ReservationController::class, 'index'])->name('reservas');
+    Route::get('/reservas/{id}/delete', [App\Http\Controllers\ReservationController::class, 'destroy'])->name('reserva.delete');
+
 
     //Categorias
     Route::get('/categorias', [App\Http\Controllers\CategoriaController::class, 'index'])->name('categorias');

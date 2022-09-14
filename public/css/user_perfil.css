@@ -1,0 +1,68 @@
+.perfil{
+    width: 60%;
+    margin-top: 50px !important;
+    margin: 0px auto;
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+}
+
+.datos{
+    padding: 20px 50px 10px 50px;
+    text-align: center;
+}
+
+hr{
+    border: 1px solid #000;
+}
+
+.tittle_details{
+    color: #ff6c6c;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+
+.acciones{
+    text-align: center;
+}
+
+.edit_user{
+    margin-bottom: 15px;
+    padding: 10px 40px 10px 40px;
+    border-radius: 10px;
+    color: #ffff;
+    background-color: #ff7373;
+    border: 1px solid #ee6f6f;
+    transition-duration: .5s;
+}
+
+.edit_user:hover{
+    margin-bottom: 15px;
+    padding: 10px 40px 10px 40px;
+    border-radius: 10px;
+    color: #ffff;
+    background-color: #c25c5c;
+    border: 1px solid #f8f8f8;
+    transition-duration: .5s;
+}
+
+.pass_user{
+    margin-bottom: 15px;
+    padding: 10px 40px 10px 40px;
+    border-radius: 10px;
+    color: #ffff;
+    background-color: #ff7373;
+    border: 1px solid #ee6f6f;
+    transition-duration: .5s;
+}
+
+.pass_user:hover{
+    margin-bottom: 15px;
+    padding: 10px 40px 10px 40px;
+    border-radius: 10px;
+    color: #ffff;
+    background-color: #c25c5c;
+    border: 1px solid #f8f8f8;
+    transition-duration: .5s;
+}

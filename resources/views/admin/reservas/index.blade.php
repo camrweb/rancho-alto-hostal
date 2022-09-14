@@ -8,82 +8,44 @@
           <table class="table">
             <thead>
               <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Depart</th>
-                <th>Date</th>
-                <th>Join Time</th>
-                <th>Logout Time</th>
-                <th>Details</th>
+                <th align="center">ID</th>
+                <th align="center">Nombres</th>
+                <th align="center">Apellidos</th>
+                <th align="center">Tipo de documento</th>
+                <th align="center">Numero de documento</th>
+                <th align="center">Categoria</th>
+                <th align="center">Habitacion</th>
+                <th align="center">Check in</th>
+                <th align="center">Check out</th>
+                <th align="center">Acciones</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td>01</td>
-                <td>Sam David</td>
-                <td>Design</td>
-                <td>03-24-22</td>
-                <td>8:00AM</td>
-                <td>3:00PM</td>
-                <td>
-                    <button>Editar</button>
-                    <button class="delete">Eliminar</button>
+                @foreach ($reservas as $reserva)
+                  
+                <td align="center">{{ $reserva->id }}</td>
+                <td align="center">{{ $reserva->nombres }}</td>
+                <td align="center">{{ $reserva->apellidos }}</td>
+                <td align="center">{{ $reserva->tipo_documento }}</td>
+                <td align="center">{{ $reserva->numero_documento }}</td>
+                <td align="center">{{ $reserva->categoria_name }}</td>
+                <td align="center">{{ $reserva->habitacion_name }}</td>
+                <td align="center">{{ $reserva->check_in }}</td>
+                <td align="center">{{ $reserva->check_out }}</td>
+                <td align="center">
+                  <div class="inline-button">
+                    {{-- <form action=""  class="acciones-button">
+                      <button>Editar</button>
+                    </form> --}}
+                    <form action="{{ route('reserva.delete', $reserva->id) }}" method="GET"  class="acciones-button">
+                      @csrf
+                      <button class="delete">Eliminar</button>
+                    </form>
+                  </div>
                 </td>
               </tr>
-              <tr>
-                <td>02</td>
-                <td>Balbina Kherr</td>
-                <td>Coding</td>
-                <td>03-24-22</td>
-                <td>9:00AM</td>
-                <td>4:00PM</td>
-                <td>
-                    <button>Editar</button>
-                    <button class="delete">Eliminar</button>
-                </td>
-              </tr>
-              <tr>
-                <td>03</td>
-                <td>Badan John</td>
-                <td>testing</td>
-                <td>03-24-22</td>
-                <td>8:00AM</td>
-                <td>3:00PM</td>
-                <td>
-                    <button>Editar</button>
-                    <button class="delete">Eliminar</button>
-                </td>
-              </tr>
-              <tr>
-                <td>04</td>
-                <td>Sara David</td>
-                <td>Design</td>
-                <td>03-24-22</td>
-                <td>8:00AM</td>
-                <td>3:00PM</td>
-                <td>
-                    <button>Editar</button>
-                    <button class="delete">Eliminar</button>
-                </td>
-              </tr>
-              <!-- <tr >
-                <td>05</td>
-                <td>Salina</td>
-                <td>Coding</td>
-                <td>03-24-22</td>
-                <td>9:00AM</td>
-                <td>4:00PM</td>
-                <td><button>View</button></td>
-              </tr>
-              <tr >
-                <td>06</td>
-                <td>Tara Smith</td>
-                <td>Testing</td>
-                <td>03-24-22</td>
-                <td>9:00AM</td>
-                <td>4:00PM</td>
-                <td><button>View</button></td>
-              </tr> -->
+              @endforeach
             </tbody>
           </table>
         </div>

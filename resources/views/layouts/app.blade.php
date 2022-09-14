@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>Rancho Alto  @yield('title')</title>
+    <title>Rancho Alto @yield('title')</title>
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
     <!-- style css -->
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
@@ -493,11 +493,47 @@
                                                                 </button>
                                                             </div>
                                                             <div class="modal-body">
+                                                                <!-- Nombre y apellido-->
+                                                                <div class="form-group">
+                                                                    <div class="row">
+                                                                        <div class="col">
+                                                                            <label
+                                                                                for="exampleFormControlSelect1" >NOMBRES</label>
+                                                                            <input type="text" name="nombres" class="form-control"
+                                                                                placeholder="Nombres" required>
+                                                                        </div>
+                                                                        <div class="col">
+                                                                            <label
+                                                                                for="exampleFormControlSelect1">APELLIDOS</label>
+                                                                            <input type="text" name="apellidos" class="form-control"
+                                                                                placeholder="Apellidos" required>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <!--Tipo de documento-->
+                                                                <div class="form-group">
+                                                                    <label for="exampleFormControlSelect1">TIPO DE
+                                                                        DOCUMENTO</label>
+                                                                    <select name="tipo_documento" class="form-control"
+                                                                        id="exampleFormControlSelect1">
+                                                                        <option>CEDULA DE CIUDADANIA</option>
+                                                                        <option>CEDULA DE EXTRANJERA</option>
+                                                                        <option>NIT</option>
+                                                                    </select>
+                                                                </div>
+                                                                <!--Numero de documento-->
+                                                                <div class="form-group">
+                                                                    <div class="form-group">
+                                                                        <label for="formGroupExampleInput">NUMERO DE DOCUMENTO</label>
+                                                                        <input type="text" name="numero_documento" class="form-control" id="formGroupExampleInput" placeholder="Numero de documento" required>
+                                                                    </div>
+                                                                </div>
                                                                 <!-- Categoria -->
                                                                 <div class="form-group">
                                                                     <label
                                                                         for="exampleFormControlSelect1">CATEGORIA</label>
-                                                                    <select class="form-control" name="_categorias" id="_categorias">
+                                                                    <select class="form-control" name="_categorias"
+                                                                        id="_categorias">
                                                                         <option id="select_default">SELECCIONA</option>
                                                                         @foreach ($categorias as $categoria)
                                                                             <option value="{{ $categoria->id }}">
@@ -509,7 +545,8 @@
                                                                 <div class="form-group">
                                                                     <label
                                                                         for="exampleFormControlSelect1">HABITACIONES</label>
-                                                                    <select class="form-control" name="_habitaciones" id="_habitaciones">
+                                                                    <select class="form-control" name="_habitaciones"
+                                                                        id="_habitaciones">
 
                                                                         <!-- Unused Code -->
                                                                         <!-- {{-- @foreach ($habitaciones as $habitacion)
@@ -526,14 +563,14 @@
                                                                     <div class="col">
                                                                         <label for="formGroupExampleInput">Check
                                                                             in</label>
-                                                                        <input type="date" name="date_1" class="form-control"
-                                                                            id="date-1">
+                                                                        <input type="date" name="date_1"
+                                                                            class="form-control" id="date-1" required>
                                                                     </div>
                                                                     <div class="col">
                                                                         <label for="formGroupExampleInput">Check
                                                                             out</label>
-                                                                        <input type="date" name="date_2"  class="form-control"
-                                                                            id="date-2">
+                                                                        <input type="date" name="date_2"
+                                                                            class="form-control" id="date-2" required>
                                                                     </div>
                                                                 </div>
                                                                 <div class="row mt-1">
@@ -595,6 +632,9 @@
                                                         <a class="dropdown-item"
                                                             href="{{ route('admin.dashboard') }}">{{ __('DASHBOARD') }}</a>
                                                     @endif
+                                                    <a class="dropdown-item" href="{{ route('perfil') }}">
+                                                        {{ __('PERFIL') }}
+                                                    </a>
                                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                                         onclick="event.preventDefault();
                                                             document.getElementById('logout-form').submit();">
@@ -744,13 +784,19 @@
                     let maxPersonas = data[0]["person-max"]
                     let description = data[0].description
                     descriptionRoom.innerHTML = `<blockquote class="blockquote">
-                                             <p "mb-0">DESCRIPCION</p>
-                                             <footer class="blockquote-footer"><cite title="Descripcion">${description}</cite></footer>
-                                           </blockquote>`;
+                                                <p "mb-0">DESCRIPCION</p>
+                                                <footer style="word-break: break-all" class="blockquote-footer"><cite title="Descripcion">${description}</cite></footer>
+                                                </blockquote>`;
                     priceCalculated.innerHTML = `El precio por noche es de: <span>${price}</span>`;
                     for (let i = 1; i <= maxPersonas; i++) {
-                        selectPersonas.innerHTML += `<label for="exampleFormControlSelect1" >MAXIMO DE PERSONAS</label>
-                                                <br><option value=${i}>${i} personas</option>`
+                        selectPersonas.innerHTML += `<div class="form-group">
+                                                        <label for="exampleFormControlSelect1">Maximo de personas</label>
+                                                        <select class="form-control" name="person_max"
+                                                                        id="person_max">
+                                                        <option name="person_max" value=${i}>${i} personas</option>
+                                                        </select>
+                                                    </div>
+                        `
                     }
                     habitacionesElem.insertAdjacentElement("afterend", descriptionRoom)
                     habitacionesElem.insertAdjacentElement("afterend", selectPersonas)
@@ -770,7 +816,7 @@
                     let timeDifference = date2.getTime() - date1.getTime();
                     let dayDifference = Math.abs(timeDifference / (1000 * 3600 * 24));
                     let priceTotal = priceSelected * dayDifference;
-                    priceCalculated.innerHTML = `Un total de: <span>${priceTotal}</span>
+                    priceCalculated.innerHTML = `Un total de: <input name="precio_total" value="${priceTotal}" >
                                     <br>por <span>${dayDifference}</span> noches`;
                 } else {
                     priceCalculated.innerHTML = "por favor seleccione una fecha valida";

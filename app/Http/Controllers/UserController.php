@@ -4,7 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Categoria;
+use App\Models\Habitacion;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\DB;
 use PDF;
 
 
@@ -103,5 +108,61 @@ class UserController extends Controller
         $user=User::find($id);
         $user->delete();
         return back()->with('succes', 'Usuario eliminado exitosamente!');
+    }
+
+    public function userdetails(){
+
+        $categorias = Categoria::all();
+        $habitaciones = Habitacion::all();
+        return view ('perfil_user.index')->with('categorias', $categorias)->with('habitaciones',$habitaciones);
+    }
+
+    public function userdetailsupdate(Request $request){
+
+        $categorias = Categoria::all();
+        $habitaciones = Habitacion::all();
+        $user = User::find(auth()->id());
+        $user->name = $request->name;
+        $user->phone = $request->phone;
+        $user->email = $request->email;
+        $user->save();
+
+        return back()->with('succes', 'Actualizado correctamente');
+    }
+
+    public function userpasswordupdate(Request $request){
+        $user = User::find(auth()->id());
+        $userpassword = $user->password;
+
+        $request->old_password !="";
+            $newpassword = $request->password;
+            $confirmpassword = $request->password_confirmation;
+
+
+            //verifico si la contraseña es igual a la del usuario logueado
+            if(Hash::check($request->old_password, $userpassword)){
+
+                if($newpassword == $confirmpassword){
+
+                    if(strlen($newpassword) >= 8){
+                        $user->password = Hash::make($request->password);
+                        $sqlBD = BD::table('user')
+                                ->where('id', $user->id);
+                        $userpassword->save();
+                        
+                        
+                    }else{
+                        
+                    }
+
+                }else{
+                    
+                }
+
+            }else{
+                
+            }
+            return response()->json($userpassword);
+        // return redirect()->back()->with('updatepassword','La contraseña fue actualizada correctamente');
     }
 }
