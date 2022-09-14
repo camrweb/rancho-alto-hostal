@@ -1,0 +1,114 @@
+.attendance{
+    margin-top: 100px;
+    text-transform: capitalize;
+}
+
+.attendance-list{
+    padding: 10px;
+    margin-left: 20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+}
+
+#description {
+    word-break: break-all !important;
+}
+
+.button-crear-index a{
+    top: 10px;
+    width: 100px;
+    border: 1px solid #4ada8a;
+    border-radius: 10px;
+    background-color: #ffff;
+}
+
+.button-crear-index a:hover{
+    border-radius: 10px;
+    background-color: #4ada8a;
+    color: #fff;
+}
+
+.button-pdf-index a{
+    top: 10px;
+    left: 1200px;
+    width: 100px;
+    border: 1px solid #da4a4a;
+    border-radius: 10px;
+    background-color: #ffff;
+}
+
+.button-pdf-index a:hover{
+    border-radius: 10px;
+    background-color: #da4a4a;
+    color: #fff;
+}
+
+.table{
+    width: 100%;
+    font-family: "Poppins", sans-serif;
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 15px;
+    overflow: hidden;
+    border-radius: 5px 5px 0 0;
+}
+table thead tr{
+color: #fff;
+background: #34AF6D;
+text-align: left;
+font-weight: bold;
+}
+.table th{
+    
+padding: 12px 15px;
+}
+.table td{
+padding: 12px 15px;
+}
+.table tbody tr{
+border-bottom: 1px solid #ddd;
+}
+.table tbody tr:nth-of-type(odd){
+background: #f3f3f3;
+}
+.table tbody tr.active{
+font-weight: bold;
+color: #4AD489;
+}
+.table tbody tr:last-of-type{
+border-bottom: 2px solid #4AD489;
+}
+
+.table button{
+    display: inline-block;
+    padding: 6px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    background: transparent;
+    border: 1px solid #4AD489;
+}
+.table button:hover{
+background: #4AD489;
+color: #fff;
+transition: 0.5rem;
+}
+
+button.delete{
+padding: 6px 20px;
+border-radius: 10px;
+cursor: pointer;
+background: transparent;
+border: 1px solid #ed7272;
+}
+
+button.delete:hover{
+background: #d44a4a;
+color: #fff;
+transition: 0.5rem;
+}
+
+
+.acciones-button{
+    display: inline-block;
+}

@@ -16,7 +16,7 @@
    </div>
    <!--  details -->
    <div class="perfil">
-
+      @include('components.flash_alert')
       <div class="datos">
          <div class="details">
                <h3 class="tittle_details">NOMBRE</h3>
@@ -37,7 +37,7 @@
       <div class="acciones">
          <button type="button" class="edit_user" data-toggle="modal" data-target="#modaledit"{{ auth()->id() }}><b>ACTUALIZAR DATOS</b></button>
          <br>
-         <button class="pass_user" data-toggle="modal" data-target="#modalpass"{{ auth()->id() }}><b>ACTUALIZAR CONTRASEÑA</b></button>
+         {{-- <button class="pass_user" data-toggle="modal" data-target="#modalpass"{{ auth()->id() }}><b>ACTUALIZAR CONTRASEÑA</b></button> --}}
       </div>
    </div>
 

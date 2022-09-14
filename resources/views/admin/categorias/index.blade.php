@@ -1,6 +1,7 @@
 @extends('layouts.admin')
 @section('admin')
 
+<link rel="stylesheet" href="{{ asset('css/categoria_index.css') }}" />
 
 <section class="attendance">
         <div class="attendance-list">
@@ -29,14 +30,16 @@
                 <td align="center">{{$categoria->id}}</td>
                 <td align="center">{{$categoria->name}}</td>
                 <td align="center">
-                  <form action= "{{ route ('categoria.edit', $categoria->id) }}" method="GET" class="edit-button">
+                  <div class="inline-button">
+                    <form action= "{{ route ('categoria.edit', $categoria->id) }}" method="GET" class="acciones-button">
                     @csrf 
                     <button type="submit">Editar</button>
-                  </form> 
-                    <form method="get" action="{{ route('categoria.delete', $categoria->id) }}" class="delete-form">
+                    </form> 
+                    <form method="get" action="{{ route('categoria.delete', $categoria->id) }}" class="acciones-button">
                       @csrf
                     <button type="submit" class="delete">Eliminar</button>
                     </form>
+                  </div>
                 </td>
               </tr>
               @endforeach

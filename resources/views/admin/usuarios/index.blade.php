@@ -1,15 +1,17 @@
 @extends('layouts.admin')
 @section('admin')
 
+<link rel="stylesheet" href="{{ asset('css/users_index.css') }}" />
+
 <!--TABLA USUARIOS REGISTRADOS-->
 <section class="attendance">
-  <button class="button-pdf-index">
-    <a href="{{ route('usuarios.pdf') }}" target="_blank">
-        PDF
-    </a>
-  </button>
         <div class="attendance-list">
-          <h1>Usuarios registrados</h1>
+          <h1 class="tittle-table">Usuarios registrados</h1>
+          <button class="button-pdf-index">
+            <a href="{{ route('usuarios.pdf') }}" target="_blank">
+                PDF
+            </a>
+          </button>
           <table class="table">
             <thead>
               <tr>
@@ -34,15 +36,17 @@
                 <td>{{$user->created_at}}</td>
                 <td>{{$user->email_verified_at }}</td>
                 <td>
-                  <form method="GET" action="{{ route('usuarios.edit', $user->id) }}" class="delete-form">
+                  <div class="inline-button">
+                  <form method="GET" action="{{ route('usuarios.edit', $user->id) }}" class="acciones-button">
                     @csrf
                     <button>Editar</button>
                     </form>
-                    <form method="get" action="{{ route('usuarios.delete', $user->id) }}" class="delete-form">
+                    <form method="get" action="{{ route('usuarios.delete', $user->id) }}" class="acciones-button">
                       @method('DELETE')
                       @csrf
                     <button type="submit" class="delete">Eliminar</button>
                     </form>
+                  </div>
                 </td>
               </tr>
               @endforeach

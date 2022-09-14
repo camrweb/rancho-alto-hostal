@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 @section('admin')
 
-
+<link rel="stylesheet" href="{{ asset('css/habitaciones_index.css') }}" />
 
 
 <section class="attendance">

@@ -7,6 +7,7 @@ use App\Models\categoria;
 use App\Models\habitacion;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Session;
 
 class ReservationController extends Controller
 {
@@ -22,6 +23,18 @@ class ReservationController extends Controller
         $categorias=Categoria::all();
         $reservas=reservation::all();
         return view ('admin.reservas.index')->with('reservas',$reservas)->with('categorias',$categorias)->with('habitaciones',$habitaciones);
+    }
+
+
+    public function pdf()
+    {
+        //
+        $habitaciones=Habitacion::all();
+        $categorias=Categoria::all();
+        $reservas=reservation::all();
+        $pdf = PDF::loadView('admin.reservas.pdf', ['categoria'=>$categoria],['habitaciones'=>$habitaciones], ['reservas' => $reservas]);
+        return $pdf->stream();
+        // return view ('admin.reservas.index')->with('reservas',$reservas)->with('categorias',$categorias)->with('habitaciones',$habitaciones);
     }
 
     /**
@@ -58,9 +71,9 @@ class ReservationController extends Controller
         $reserva->precio_total = $request->precio_total;
         
         $reserva->save();
-
-        // Reserva::insert($reserva);
-        return response()->json($reserva);
+        
+        return redirect()->back()
+        ->with('info','Se ha realizado la reserva correctamente.');
     }
 
     /**

@@ -1,5 +1,4 @@
-<!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<!DOCTYPE html>
 
 <head>
     <meta charset="utf-8">
@@ -789,13 +788,9 @@
                                                 </blockquote>`;
                     priceCalculated.innerHTML = `El precio por noche es de: <span>${price}</span>`;
                     for (let i = 1; i <= maxPersonas; i++) {
-                        selectPersonas.innerHTML += `<div class="form-group">
-                                                        <label for="exampleFormControlSelect1">Maximo de personas</label>
-                                                        <select class="form-control" name="person_max"
-                                                                        id="person_max">
-                                                        <option name="person_max" value=${i}>${i} personas</option>
+                        selectPersonas.innerHTML += ` <select name="person_max" class="form-control" id="person_max">
+                                                        <option value=${i}>${i} personas</option>
                                                         </select>
-                                                    </div>
                         `
                     }
                     habitacionesElem.insertAdjacentElement("afterend", descriptionRoom)
@@ -824,6 +819,7 @@
 
             })
         </script>
+        
     </div>
 </body>
 

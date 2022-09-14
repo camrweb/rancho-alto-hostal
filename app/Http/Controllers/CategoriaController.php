@@ -27,8 +27,8 @@ class CategoriaController extends Controller
         $categorias=Categoria::all();
         $pdf = PDF::loadView('admin.categorias.pdf', ['categorias'=>$categorias]);
         PDF::setOption(['dpi' =>60]);
-        // return $pdf->stream();
-        return $pdf->download('datos.pdf');
+        return $pdf->stream();
+        // return $pdf->download('datos.pdf');
         // $pdf->loadHTML('<h1>Test</h1>');
     }
 

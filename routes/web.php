@@ -5,6 +5,7 @@ use App\Http\Controllers\CategoriaController;
 use App\Models\Categoria;
 use App\Models\Habitacion;
 use App\models\GaleriaAdmin;
+use Illuminate\Support\Facades\Session;
 
 /*
 |--------------------------------------------------------------------------

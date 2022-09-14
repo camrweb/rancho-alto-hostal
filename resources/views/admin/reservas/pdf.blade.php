@@ -2,16 +2,12 @@
 @section('admin')
 
 
-<link rel="stylesheet" href="{{ asset('css/reservas_index.css') }}" />
+<link rel="stylesheet" href="{{ public_path('css/pdf_habitaciones.css') }}" type="text/css">
+    <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
 
 <section class="attendance">
         <div class="attendance-list">
           <h1 class="tittle-table">Reservas</h1>
-          <button class="button-pdf-index">
-            <a href="{{ route('reservas.pdf') }}" target="_blank">
-                PDF
-            </a>
-          </button>
           <table class="table">
             <thead>
               <tr>

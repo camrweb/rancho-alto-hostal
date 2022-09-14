@@ -27,8 +27,8 @@ class UserController extends Controller
     {
         $users = User::all();
         $pdf = PDF::loadView('admin.usuarios.pdf',['users'=>$users]);
-        // return $pdf->stream();
-        return $pdf->download('usuarios.pdf');
+        return $pdf->stream();
+        // return $pdf->download('usuarios.pdf');
         // return view ('admin.usuarios.index', ['users' => $users]);
     }
 
@@ -127,7 +127,7 @@ class UserController extends Controller
         $user->email = $request->email;
         $user->save();
 
-        return back()->with('succes', 'Actualizado correctamente');
+        return back()->with('message', 'Datos actualizado correctamente');
     }
 
     public function userpasswordupdate(Request $request){

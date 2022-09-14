@@ -1,3 +1,7 @@
+#description{
+    word-break: break-all !important;
+}
+
 .attendance-list{
     padding: 10px;
     margin-left: 20px;
@@ -6,11 +10,9 @@
     box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
 }
 
-#description {
-    word-break: break-all !important;
-}
 
 .table{
+    width: 100%;
     font-family: "Poppins", sans-serif;
     border-collapse: collapse;
     margin: 25px 0;
@@ -25,10 +27,11 @@ text-align: left;
 font-weight: bold;
 }
 .table th{
-    
+word-break: break-all;
 padding: 12px 15px;
 }
 .table td{
+word-break: break-all;
 padding: 12px 15px;
 }
 .table tbody tr{

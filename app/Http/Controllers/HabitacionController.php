@@ -31,9 +31,8 @@ class HabitacionController extends Controller
         $categoria = Categoria::where('name', $name)->first();
         $habitaciones = Habitacion::where('categoria_id', $categoria->id)->get();
         $pdf = PDF::loadView('admin.habitaciones.pdf', ['categoria'=>$categoria],['habitaciones'=>$habitaciones]);
-        PDF::setOption(['dpi' =>60]);
         return $pdf->stream();
-        return $pdf->download('datos.pdf');
+        // return $pdf->download('datos.pdf');
         // $pdf->loadHTML('<h1>Test</h1>');
         // return view('admin.habitaciones.pdf')->with('categoria', $categoria)->with('habitaciones', $habitaciones);
     }
