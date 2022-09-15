@@ -26,12 +26,7 @@ Route::get('/dashboard', function () {
 require __DIR__.'/auth.php';
 
 //USUARIOS
-Route::get('/', function () {
-    $categorias = Categoria::all();
-    $habitaciones = Habitacion::all();
-    $galerias = GaleriaAdmin::all();
-    return view('welcome')->with('categorias', $categorias)->with('habitaciones', $habitaciones)->with('galerias', $galerias);
-})->name('index');
+Route::get('/', [App\Http\Controllers\HogarController::class, 'index'])->name('index');
 
 Route::post('/enviar-formulario', [App\Http\Controllers\ContactoController::class, 'store'])->name('form.contact');
 Route::get('/correos', [App\Http\Controllers\ContactoController::class, 'index'])->name('contact.email');
@@ -47,12 +42,7 @@ Route::get('/habitaciones', function () {
     return view('habitaciones.index')->with('categorias', $categorias)->with('habitaciones', $habitaciones);
 })->name('habitaciones');
 
-Route::get('/galeria', function () {
-    $categorias = Categoria::all();
-    $habitaciones = Habitacion::all();
-    $galerias = GaleriaAdmin::all();
-    return view('galeria.index')->with('categorias', $categorias)->with('habitaciones', $habitaciones)->with('galerias', $galerias);
-})->name('galeria');
+Route::get('/galeria', [App\Http\Controllers\HogarController::class, 'galeriaindex'])->name('galeria');
 
 Route::get('/contactanos', function () {
     $categorias = Categoria::all();
