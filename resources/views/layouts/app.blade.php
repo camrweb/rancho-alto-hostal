@@ -442,7 +442,7 @@
                             <div class="full">
                                 <div class="center-desk">
                                     <div class="logo">
-                                        <a href=""><img src="images/rancho_alto_logo_1.png" alt="#" /></a>
+                                        <a href="{{ route('index') }}"><img src="images/rancho_alto_logo_1.png" alt="#" /></a>
                                     </div>
                                 </div>
                             </div>

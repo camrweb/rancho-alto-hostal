@@ -20,7 +20,7 @@
             <div class="row">
                   <div class="col-md-12">
                      <div class="titlepage">
-                        <p class="margin_0">Disfruta de las hermosas vistas de la naturaleza.</p>
+                        <p class="margin_0">Disfruta de las hermosas vistas que tiene la naturaleza.</p>
                      </div>
                   </div>
             </div>
