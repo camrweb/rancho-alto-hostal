@@ -56,15 +56,27 @@
         </div>
 
         <div class="contenedor">
-          <div class="header_dashboard">
-              <h2><i class="fas fa-images" style="margin-right: 10px"></i>Imagenes agregadas</h2>
-          </div>
-          <hr>
-          <div class="inside_dashboard">
-              <div class="count">
-                  <h3><b>{{ $imagenes }}</b></h3>
-              </div>
-          </div>
-      </div>
+            <div class="header_dashboard">
+                <h2><i class="fas fa-images" style="margin-right: 10px"></i>Imagenes agregadas</h2>
+            </div>
+            <hr>
+            <div class="inside_dashboard">
+                <div class="count">
+                    <h3><b>{{ $imagenes }}</b></h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="contenedor">
+            <div class="header_dashboard">
+                <h2><i class="fas fa-envelope" style="margin-right: 10px"></i></i>Correos</h2>
+            </div>
+            <hr>
+            <div class="inside_dashboard">
+                <div class="count">
+                    <h3><b>{{ $correos }}</b></h3>
+                </div>
+            </div>
+        </div>
     </div>
 @endsection

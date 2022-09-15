@@ -714,10 +714,10 @@
                             <div class="col-md-10 offset-md-1">
 
                                 <p>
-                                    © 2022 Todos los derechos reservados. Diseñado por <a
-                                        href="https://www.instagram.com/andres16.mr/" target="_blank"> CAMR</a>
+                                    © 2022 Todos los derechos reservados.<a
+                                        href="https://github.com/camrweb" target="_blank"> CAMR</a>
                                     <br><br>
-                                    Distribuido por <a href="https://www.instagram.com/andres16.mr/"
+                                    Distribuido por <a href="https://github.com/camrweb"
                                         target="_blank">CAMR Web</a>
                                 </p>
 

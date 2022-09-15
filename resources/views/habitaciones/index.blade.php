@@ -37,11 +37,12 @@
                                  <p class="card-subtitle text-muted" style="word-break: break-all">
                                     <em>{{ $habitacion->description }}</em></p>
                                  <hr>
-                                 <p> $ {{ $habitacion->price }}</p>
-                                 <div>
+                                 <p style="margin: 0; color:#c25c5c">NOCHE</p>
+                                 <p> ${{ $habitacion->price }}</p>
+                                 {{-- <div>
                                     <button id="swal_Alert" class="btn btn-danger mr-2 reservar-alert"
                                           data-toggle="modal" data-target="#exampleModal">RESERVAR AHORA</button>
-                                 </div>
+                                 </div> --}}
                               </div>
                         </div>
                      </div>

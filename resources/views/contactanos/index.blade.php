@@ -17,23 +17,25 @@
       <div class="contact">
          <div class="container">
             <div class="row">
+               @include('components.flash_alert')
                <div class="col-md-6">
-                  <form id="request" class="main_form">
+                  <form id="request" action="{{ route('form.contact') }}" method="POST" class="main_form">
+                     @csrf
                      <div class="row">
                         <div class="col-md-12 ">
-                           <input class="contactus" placeholder="Nombre" type="type" name="Name"> 
+                           <input class="contactus" placeholder="Nombre" type="type" name="name" required>
                         </div>
                         <div class="col-md-12">
-                           <input class="contactus" placeholder="Email" type="type" name="Email"> 
+                           <input class="contactus" placeholder="Email" type="email" name="email" required>
                         </div>
                         <div class="col-md-12">
-                           <input class="contactus" placeholder="Telefono" type="type" name="Phone Number">                          
+                           <input class="contactus" placeholder="Telefono" type="number" name="telefono" required>
                         </div>
                         <div class="col-md-12">
-                           <textarea class="textarea" placeholder="Mensaje" type="type" Message="Name"></textarea>
+                           <textarea class="textarea" placeholder="Mensaje" type="type" name="message" required></textarea>
                         </div>
                         <div class="col-md-12">
-                           <button class="send_btn">Enviar</button>
+                           <button type="submit" class="send_btn">ENVIAR</button>
                         </div>
                      </div>
                   </form>

@@ -8,6 +8,7 @@ use App\Models\habitacion;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Session;
+use PDF;
 
 class ReservationController extends Controller
 {
@@ -32,7 +33,14 @@ class ReservationController extends Controller
         $habitaciones=Habitacion::all();
         $categorias=Categoria::all();
         $reservas=reservation::all();
-        $pdf = PDF::loadView('admin.reservas.pdf', ['categoria'=>$categoria],['habitaciones'=>$habitaciones], ['reservas' => $reservas]);
+
+        $data = [
+            'categorias'     => $categorias,
+            'habitaciones' => $habitaciones,
+            'reservas'  => $reservas
+        ];
+
+        $pdf = PDF::loadView('admin.reservas.pdf', $data);
         return $pdf->stream();
         // return view ('admin.reservas.index')->with('reservas',$reservas)->with('categorias',$categorias)->with('habitaciones',$habitaciones);
     }

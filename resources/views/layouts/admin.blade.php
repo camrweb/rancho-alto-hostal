@@ -67,6 +67,10 @@
           <i class="fas fa-users"></i>
           <span class="nav-item">Usuarios</span>
         </a></li>
+        <li><a href="{{route('contact.email')}}">
+          <i class="fas fa-envelope"></i>
+          <span class="nav-item">Correos</span>
+        </a></li>
         <li><a href="{{ route('index') }}" class="home">
           <i class="fas fa-home"></i>
           <span class="nav-item">Pagina</span>

@@ -29,8 +29,13 @@ require __DIR__.'/auth.php';
 Route::get('/', function () {
     $categorias = Categoria::all();
     $habitaciones = Habitacion::all();
-    return view('welcome')->with('categorias', $categorias)->with('habitaciones', $habitaciones);
+    $galerias = GaleriaAdmin::all();
+    return view('welcome')->with('categorias', $categorias)->with('habitaciones', $habitaciones)->with('galerias', $galerias);
 })->name('index');
+
+Route::post('/enviar-formulario', [App\Http\Controllers\ContactoController::class, 'store'])->name('form.contact');
+Route::get('/correos', [App\Http\Controllers\ContactoController::class, 'index'])->name('contact.email');
+Route::get('/correos/{id}/delete', [App\Http\Controllers\ContactoController::class, 'destroy'])->name('contact.email.delete');
 
 Route::get('habitaciones/{categoria}', [App\Http\Controllers\HabitacionController::class, 'getByCategory']);
 
@@ -85,6 +90,7 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function () {
     //Reservas
     Route::get('/reservas', [App\Http\Controllers\ReservationController::class, 'index'])->name('reservas');
     Route::get('/reservas/{id}/delete', [App\Http\Controllers\ReservationController::class, 'destroy'])->name('reserva.delete');
+    Route::get('/reservas/pdf', [App\Http\Controllers\ReservationController::class, 'pdf'])->name('reservas.pdf');
 
 
     //Categorias
@@ -120,7 +126,6 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function () {
     Route::get('/usuarios/pdf', [App\Http\Controllers\UserController::class, 'pdf'])->name('usuarios.pdf');
 
     Route::get('/admin', [App\Http\Controllers\DashBoardController::class, 'getDashboard'])->name('admin.dashboard');
-
 
     //TODAS LAS RUTAS
     Route::resource('categoria', CategoriaController::class);
